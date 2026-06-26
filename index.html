@@ -337,6 +337,172 @@
                 padding: 0.75rem 1.5rem;
             }
         }
+
+        /* Upcoming Escapes Section */
+        .escapes-section {
+            background-color: var(--color-background);
+            padding: var(--spacing-4xl) 0;
+        }
+
+        .escapes-section h2 {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            font-size: clamp(2rem, 5vw, 2.5rem);
+        }
+
+        .escapes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-4xl);
+        }
+
+        .escape-card {
+            position: relative;
+            background-color: var(--color-background-secondary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .escape-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .escape-card-image {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background-color: #e0e0e0;
+        }
+
+        .escape-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+            transition: transform var(--transition-slow);
+        }
+
+        .escape-card:hover .escape-card-image img {
+            transform: scale(1.05);
+        }
+
+        .date-badge {
+            position: absolute;
+            bottom: -1px;
+            left: var(--spacing-lg);
+            background-color: var(--color-accent-orange);
+            color: var(--color-background-secondary);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow-md);
+            z-index: 2;
+        }
+
+        .escape-card-content {
+            padding: var(--spacing-xl);
+        }
+
+        .escape-card-title {
+            font-family: var(--font-serif);
+            font-size: var(--font-size-xl);
+            color: var(--color-primary-dark);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            line-height: var(--line-height-tight);
+        }
+
+        .escape-card-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--spacing-lg);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .escape-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--color-primary-main);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-base);
+        }
+
+        .escape-card-link:hover {
+            color: var(--color-accent-orange);
+            gap: var(--spacing-md);
+        }
+
+        .arrow-icon {
+            font-size: 1rem;
+            transition: transform var(--transition-base);
+        }
+
+        .escape-card-link:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* Grid Responsive */
+        @media (max-width: 1024px) {
+            .escapes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-xl);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .escapes-section {
+                padding: var(--spacing-3xl) 0;
+            }
+
+            .escapes-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+
+            .escape-card-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .escapes-section {
+                padding: var(--spacing-2xl) 0;
+            }
+
+            .escape-card-image {
+                height: 220px;
+            }
+
+            .escape-card-content {
+                padding: var(--spacing-lg);
+            }
+
+            .escape-card-title {
+                font-size: var(--font-size-lg);
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .escape-card-description {
+                font-size: var(--font-size-xs);
+                margin-bottom: var(--spacing-md);
+            }
+        }
     </style>
 </head>
 <body>
@@ -359,5 +525,61 @@
             <button class="btn btn-secondary">Learn More</button>
         </div>
     </main>
+
+    <section class="escapes-section">
+        <div class="container">
+            <h2>Upcoming Escapes</h2>
+
+            <div class="escapes-grid">
+                <!-- Escape Card 1 -->
+                <div class="escape-card">
+                    <div class="escape-card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Himalayan Adventure">
+                        <div class="date-badge">Apr 15-25</div>
+                    </div>
+                    <div class="escape-card-content">
+                        <h3 class="escape-card-title">Himalayan Adventure</h3>
+                        <p class="escape-card-description">Trek through misty peaks, discover ancient monasteries, and connect with fellow women adventurers in the heart of the Himalayas.</p>
+                        <a href="#" class="escape-card-link">
+                            View Itinerary
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Escape Card 2 -->
+                <div class="escape-card">
+                    <div class="escape-card-image">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop" alt="Coastal Wanderlust">
+                        <div class="date-badge">May 8-18</div>
+                    </div>
+                    <div class="escape-card-content">
+                        <h3 class="escape-card-title">Coastal Wanderlust</h3>
+                        <p class="escape-card-description">Explore hidden coves, surf pristine beaches, and unwind at charming seaside villages along the stunning coast.</p>
+                        <a href="#" class="escape-card-link">
+                            View Itinerary
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Escape Card 3 -->
+                <div class="escape-card">
+                    <div class="escape-card-image">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop" alt="Desert Dreams">
+                        <div class="date-badge">Jun 2-12</div>
+                    </div>
+                    <div class="escape-card-content">
+                        <h3 class="escape-card-title">Desert Dreams</h3>
+                        <p class="escape-card-description">Experience golden dunes, starlit nights, and immerse yourself in vibrant local cultures of the magnificent desert.</p>
+                        <a href="#" class="escape-card-link">
+                            View Itinerary
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
