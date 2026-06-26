@@ -226,15 +226,127 @@
         img:hover {
             box-shadow: var(--shadow-lg);
         }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(27, 77, 62, 0.5), rgba(27, 77, 62, 0.5)),
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=900&fit=crop') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--color-background);
+            z-index: 1;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            color: var(--color-background);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-tagline {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 5vw, 2.5rem);
+            color: var(--color-accent-orange);
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: var(--spacing-3xl);
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .btn-primary {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+            background-color: var(--color-accent-orange);
+            color: var(--color-background-secondary);
+            border: 2px solid var(--color-accent-orange);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(217, 127, 62, 0.3);
+        }
+
+        .hero .btn-primary:hover {
+            background-color: var(--color-accent-orange-dark);
+            border-color: var(--color-accent-orange-dark);
+            box-shadow: 0 12px 32px rgba(217, 127, 62, 0.5);
+            transform: translateY(-4px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                height: 100vh;
+                background-attachment: scroll;
+            }
+
+            .hero h1 {
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .hero-tagline {
+                margin-bottom: var(--spacing-2xl);
+            }
+
+            .hero-content {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.25rem;
+                margin-bottom: var(--spacing-xl);
+            }
+
+            .hero .btn-primary {
+                font-size: 0.95rem;
+                padding: 0.75rem 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <section class="hero">
+        <div class="hero-content">
             <h1>Gone Girl</h1>
-            <p class="secondary-text">Adventure Travel for Women</p>
+            <p class="hero-tagline">Women Who Wander</p>
+            <button class="btn btn-primary">Join the Next Escape</button>
         </div>
-    </header>
+    </section>
 
     <main>
         <div class="container">
