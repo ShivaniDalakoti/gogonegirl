@@ -292,6 +292,90 @@
             font-size: var(--font-size-sm);
         }
 
+        /* Hamburger Menu Button */
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-primary-dark);
+            cursor: pointer;
+            padding: var(--spacing-sm);
+            transition: color var(--transition-base);
+        }
+
+        .hamburger-btn:hover {
+            color: var(--color-accent-orange);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-btn {
+                display: block;
+            }
+        }
+
+        /* Mobile Navigation Menu */
+        .hidden-mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--color-background-secondary);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-lg) 0;
+            z-index: 999;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-base);
+        }
+
+        .hidden-mobile-nav.active {
+            max-height: 400px;
+        }
+
+        @media (max-width: 768px) {
+            .hidden-mobile-nav {
+                display: block;
+            }
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .mobile-nav-links li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: var(--spacing-lg);
+            color: var(--color-text-primary);
+            font-weight: 500;
+            transition: all var(--transition-base);
+        }
+
+        .mobile-nav-links a:hover {
+            background-color: rgba(217, 127, 62, 0.1);
+            color: var(--color-accent-orange);
+            padding-left: calc(var(--spacing-lg) + var(--spacing-md));
+        }
+
+        .mobile-book-btn {
+            background-color: rgba(45, 106, 85, 0.1);
+            color: var(--color-primary-main);
+            font-weight: 600;
+        }
+
+        .mobile-book-btn:hover {
+            background-color: var(--color-primary-main);
+            color: var(--color-background-secondary);
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -1268,8 +1352,21 @@
 
             <!-- Booking Button -->
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVKts7VWDOpx8sk4BWGAv0ItKwStzU32pShSaJzIzneX_K0w/viewform?usp=header" target="_blank" class="btn btn-primary btn-sm">Book Now</a>
+
+            <!-- Hamburger Menu Button -->
+            <button id="hamburger-btn" class="hamburger-btn">&#9776;</button>
         </div>
     </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden-mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="#escapes">Escapes</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfVKts7VWDOpx8sk4BWGAv0ItKwStzU32pShSaJzIzneX_K0w/viewform?usp=header" target="_blank" class="mobile-book-btn">Book Now</a></li>
+        </ul>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
@@ -1609,6 +1706,20 @@
     </div>
 
     <script>
+        // Hamburger Menu Toggle
+        document.getElementById('hamburger-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.remove('active');
+            });
+        });
+
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
