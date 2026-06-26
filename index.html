@@ -417,7 +417,7 @@
 
         .escapes-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: var(--spacing-2xl);
             margin-bottom: var(--spacing-4xl);
         }
@@ -524,6 +524,13 @@
         }
 
         /* Grid Responsive */
+        @media (max-width: 1440px) {
+            .escapes-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-xl);
+            }
+        }
+
         @media (max-width: 1024px) {
             .escapes-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1090,51 +1097,83 @@
             <h2>Upcoming Escapes</h2>
 
             <div class="escapes-grid">
-                <!-- Escape Card 1 -->
-                <div class="escape-card">
+                <!-- Card 1: Nainital & Kainchi Dham -->
+                <div class="escape-card" onclick="openModal('modal-nainital')">
                     <div class="escape-card-image">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Himalayan Adventure">
-                        <div class="date-badge">Apr 15-25</div>
+                        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&h=400&fit=crop" alt="Nainital">
+                        <div class="date-badge">4 Nights / 5 Days</div>
                     </div>
                     <div class="escape-card-content">
-                        <h3 class="escape-card-title">Himalayan Adventure</h3>
-                        <p class="escape-card-description">Trek through misty peaks, discover ancient monasteries, and connect with fellow women adventurers in the heart of the Himalayas.</p>
-                        <a href="#" class="escape-card-link">
-                            View Itinerary
-                            <span class="arrow-icon">→</span>
-                        </a>
+                        <h3 class="escape-card-title">Kainchi Dham & Nainital</h3>
+                        <p class="escape-card-description">A slow, safe & soulful journey covering Ramgarh slow living, Mukteshwar sunsets, Bhalugaad waterfall, and temple darshans.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                            <span class="escape-card-link">View Itinerary →</span>
+                            <span style="font-weight:600; color:var(--color-accent-orange);">₹21,000 / person</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Escape Card 2 -->
-                <div class="escape-card">
+                <!-- Card 2: Corbett -->
+                <div class="escape-card" onclick="openModal('modal-corbett')">
                     <div class="escape-card-image">
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop" alt="Coastal Wanderlust">
-                        <div class="date-badge">May 8-18</div>
+                        <img src="https://images.unsplash.com/photo-1615959189197-484c0fcb5511?w=600&h=400&fit=crop" alt="Jim Corbett">
+                        <div class="date-badge">2 Nights / 3 Days</div>
                     </div>
                     <div class="escape-card-content">
-                        <h3 class="escape-card-title">Coastal Wanderlust</h3>
-                        <p class="escape-card-description">Explore hidden coves, surf pristine beaches, and unwind at charming seaside villages along the stunning coast.</p>
-                        <a href="#" class="escape-card-link">
-                            View Itinerary
-                            <span class="arrow-icon">→</span>
-                        </a>
+                        <h3 class="escape-card-title">Jim Corbett Wilderness</h3>
+                        <p class="escape-card-description">Thrilling jungle safaris, staying at cozy riverside boutique resorts, nature walks, and evening bonfires under the stars.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                            <span class="escape-card-link">View Itinerary →</span>
+                            <span style="font-weight:600; color:var(--color-accent-orange);">₹12,500 / person</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Escape Card 3 -->
-                <div class="escape-card">
+                <!-- Card 3: Kerala -->
+                <div class="escape-card" onclick="openModal('modal-kerala')">
                     <div class="escape-card-image">
-                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop" alt="Desert Dreams">
-                        <div class="date-badge">Jun 2-12</div>
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=600&h=400&fit=crop" alt="Kerala">
+                        <div class="date-badge">5 Nights / 6 Days</div>
                     </div>
                     <div class="escape-card-content">
-                        <h3 class="escape-card-title">Desert Dreams</h3>
-                        <p class="escape-card-description">Experience golden dunes, starlit nights, and immerse yourself in vibrant local cultures of the magnificent desert.</p>
-                        <a href="#" class="escape-card-link">
-                            View Itinerary
-                            <span class="arrow-icon">→</span>
-                        </a>
+                        <h3 class="escape-card-title">Kerala Backwaters & Hills</h3>
+                        <p class="escape-card-description">A classic trip covering Munnar tea hills, wildlife spotting at Periyar reserve in Thekkady, and relaxing stays along the Alleppey backwaters.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                            <span class="escape-card-link">View Itinerary →</span>
+                            <span style="font-weight:600; color:var(--color-accent-orange);">₹20,499 / person</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Sikkim -->
+                <div class="escape-card" onclick="openModal('modal-sikkim')">
+                    <div class="escape-card-image">
+                        <img src="https://images.unsplash.com/photo-1626621336495-9bf8d39e99a2?w=600&h=400&fit=crop" alt="Sikkim">
+                        <div class="date-badge">4 Nights / 5 Days</div>
+                    </div>
+                    <div class="escape-card-content">
+                        <h3 class="escape-card-title">Sikkim & Darjeeling</h3>
+                        <p class="escape-card-description">High-altitude adventure covering Gangtok, the sacred Tsomgo Lake, Baba Mandir, and sunrise points looking over Mt. Khangchendzonga.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                            <span class="escape-card-link">View Itinerary →</span>
+                            <span style="font-weight:600; color:var(--color-accent-orange);">₹20,700 / person</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Meghalaya -->
+                <div class="escape-card" onclick="openModal('modal-meghalaya')">
+                    <div class="escape-card-image">
+                        <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?w=600&h=400&fit=crop" alt="Meghalaya">
+                        <div class="date-badge">4 Nights / 5 Days</div>
+                    </div>
+                    <div class="escape-card-content">
+                        <h3 class="escape-card-title">Meghalaya & Assam</h3>
+                        <p class="escape-card-description">Explore the Scotland of the East. Wavy roads to Shillong, Cherrapunjee waterfalls, crystal clear boating in Dawki, and Guwahati local sights.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                            <span class="escape-card-link">View Itinerary →</span>
+                            <span style="font-weight:600; color:var(--color-accent-orange);">₹18,800 / person</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1269,11 +1308,24 @@
     </footer>
 
     <script>
+        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.closest('.faq-item');
                 faqItem.classList.toggle('active');
             });
+        });
+
+        // Modal Handler for Escape Cards
+        function openModal(modalId) {
+            console.log('Opening modal:', modalId);
+            // TODO: Add your modal implementation here
+            // You can create modal elements with IDs matching: modal-nainital, modal-corbett, modal-kerala, modal-sikkim, modal-meghalaya
+        }
+
+        // Make escape cards clickable
+        document.querySelectorAll('.escape-card').forEach(card => {
+            card.style.cursor = 'pointer';
         });
     </script>
 </body>
