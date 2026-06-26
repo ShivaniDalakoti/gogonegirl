@@ -676,37 +676,47 @@
         /* Video Testimonials */
         .video-card {
             background-color: var(--color-background-secondary);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
             transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .video-card:hover {
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             transform: translateY(-4px);
         }
 
         .testimonial-video {
             width: 100%;
-            height: auto;
-            display: block;
+            max-width: 320px;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
             background-color: #000;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            margin-bottom: var(--spacing-md);
         }
 
         .video-caption {
-            padding: var(--spacing-lg);
             text-align: center;
-            background-color: var(--color-background-secondary);
+            width: 100%;
         }
 
         .video-caption .testimonial-name {
-            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-serif);
+            font-size: var(--font-size-lg);
+            color: var(--color-primary-dark);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
         }
 
         .video-caption .testimonial-role {
-            margin-top: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+            color: var(--color-accent-orange);
+            margin-bottom: 0;
         }
 
         /* Testimonials Responsive */
@@ -761,12 +771,18 @@
                 font-size: var(--font-size-base);
             }
 
-            .video-caption {
-                padding: var(--spacing-md);
+            .video-card {
+                padding: var(--spacing-sm);
+            }
+
+            .testimonial-video {
+                max-width: 280px;
+                margin-bottom: var(--spacing-sm);
             }
 
             .video-caption .testimonial-name {
                 font-size: var(--font-size-base);
+                margin-bottom: var(--spacing-xs);
             }
 
             .video-caption .testimonial-role {
