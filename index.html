@@ -673,6 +673,42 @@
             margin-top: var(--spacing-sm);
         }
 
+        /* Video Testimonials */
+        .video-card {
+            background-color: var(--color-background-secondary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .video-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #000;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .video-caption {
+            padding: var(--spacing-lg);
+            text-align: center;
+            background-color: var(--color-background-secondary);
+        }
+
+        .video-caption .testimonial-name {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .video-caption .testimonial-role {
+            margin-top: var(--spacing-xs);
+        }
+
         /* Testimonials Responsive */
         @media (max-width: 1024px) {
             .testimonials-grid {
@@ -723,6 +759,18 @@
 
             .testimonial-name {
                 font-size: var(--font-size-base);
+            }
+
+            .video-caption {
+                padding: var(--spacing-md);
+            }
+
+            .video-caption .testimonial-name {
+                font-size: var(--font-size-base);
+            }
+
+            .video-caption .testimonial-role {
+                font-size: var(--font-size-xs);
             }
         }
 
@@ -1321,37 +1369,40 @@
             <p class="community-subtitle">Hear from real women who've transformed their lives through adventure</p>
 
             <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-profile">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Sarah" class="profile-image">
+                <!-- Video Testimonial 1 -->
+                <div class="video-card">
+                    <video controls playsinline preload="metadata" class="testimonial-video">
+                        <source src="Don't take our word for it, hear it from the girls themselves!! #gonegirl #review #womentravel #.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <p class="testimonial-name">Neha Sharma</p>
+                        <p class="testimonial-role">Solo Traveler</p>
                     </div>
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">Gone Girl changed my perspective on solo travel. I found confidence, friendship, and memories that will last a lifetime. Highly recommended!</p>
-                    <p class="testimonial-name">Sarah Mitchell</p>
-                    <p class="testimonial-role">Adventure Enthusiast</p>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-profile">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Emma" class="profile-image">
+                <!-- Video Testimonial 2 -->
+                <div class="video-card">
+                    <video controls playsinline preload="metadata" class="testimonial-video">
+                        <source src="Pretty girls, prettier memories ✨Gone Girls Trip Experience through the eyes of our cutie! ❤️ Th.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <p class="testimonial-name">Priya Verma</p>
+                        <p class="testimonial-role">Group Trip</p>
                     </div>
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">The group dynamic was incredible. Instead of traveling alone, I discovered a sisterhood of adventurous women from around the world.</p>
-                    <p class="testimonial-name">Emma Rodriguez</p>
-                    <p class="testimonial-role">Photographer</p>
                 </div>
 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-profile">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Jessica" class="profile-image">
+                <!-- Video Testimonial 3 -->
+                <div class="video-card">
+                    <video controls playsinline preload="metadata" class="testimonial-video">
+                        <source src="We live for reviews like these 💛Nothing feels better than hearing your experience in the mounta.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <p class="testimonial-name">Aditi Rao</p>
+                        <p class="testimonial-role">Adventure Enthusiast</p>
                     </div>
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">Every detail was perfectly planned, from accommodations to activities. I felt safe, supported, and truly empowered throughout the journey.</p>
-                    <p class="testimonial-name">Jessica Chen</p>
-                    <p class="testimonial-role">Travel Blogger</p>
                 </div>
             </div>
         </div>
