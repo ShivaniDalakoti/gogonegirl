@@ -227,6 +227,63 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* Sticky Header */
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-background-secondary);
+            box-shadow: var(--shadow-sm);
+            padding: var(--spacing-md) 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .main-nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .main-nav {
+                display: block;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-primary);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            transition: color var(--transition-base);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent-orange);
+        }
+
+        .btn-sm {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: var(--font-size-sm);
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -867,6 +924,23 @@
     </style>
 </head>
 <body>
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">Gone Girl</a>
+
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#escapes">Escapes</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="btn btn-primary btn-sm">Book Now</button>
+        </div>
+    </header>
+
     <section class="hero">
         <div class="hero-content">
             <h1>Gone Girl</h1>
