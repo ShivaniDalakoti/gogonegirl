@@ -293,87 +293,36 @@
         }
 
         /* Hamburger Menu Button */
-        .hamburger-btn {
-            display: none;
+        #hamburger-btn {
+            display: block;
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--color-primary-dark);
             cursor: pointer;
-            padding: var(--spacing-sm);
-            transition: color var(--transition-base);
         }
 
-        .hamburger-btn:hover {
-            color: var(--color-accent-orange);
-        }
-
-        @media (max-width: 768px) {
-            .hamburger-btn {
-                display: block;
+        @media (min-width: 768px) {
+            #hamburger-btn {
+                display: none;
             }
         }
 
         /* Mobile Navigation Menu */
         .hidden-mobile-nav {
             display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: var(--color-background-secondary);
-            box-shadow: var(--shadow-md);
-            padding: var(--spacing-lg) 0;
-            z-index: 999;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height var(--transition-base);
+            background: var(--color-background-secondary);
+            padding: var(--spacing-md);
         }
 
         .hidden-mobile-nav.active {
-            max-height: 400px;
-        }
-
-        @media (max-width: 768px) {
-            .hidden-mobile-nav {
-                display: block;
-            }
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .mobile-nav-links li {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .mobile-nav-links a {
             display: block;
-            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .hidden-mobile-nav a {
+            display: block;
+            padding: var(--spacing-sm);
             color: var(--color-text-primary);
-            font-weight: 500;
-            transition: all var(--transition-base);
-        }
-
-        .mobile-nav-links a:hover {
-            background-color: rgba(217, 127, 62, 0.1);
-            color: var(--color-accent-orange);
-            padding-left: calc(var(--spacing-lg) + var(--spacing-md));
-        }
-
-        .mobile-book-btn {
-            background-color: rgba(45, 106, 85, 0.1);
-            color: var(--color-primary-main);
-            font-weight: 600;
-        }
-
-        .mobile-book-btn:hover {
-            background-color: var(--color-primary-main);
-            color: var(--color-background-secondary);
         }
 
         /* Hero Section */
