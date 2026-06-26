@@ -148,6 +148,8 @@
             cursor: pointer;
             transition: all var(--transition-base);
             font-weight: 500;
+            display: inline-block;
+            text-decoration: none;
         }
 
         .btn-primary {
@@ -926,18 +928,20 @@
 <body>
     <header class="main-header">
         <div class="container header-container">
-            <a href="#" class="logo">Gone Girl</a>
+            <!-- Text Logo (you can replace the text with an <img> later if you prefer) -->
+            <a href="#" class="logo">Gone Girl.</a>
 
+            <!-- Navigation Links -->
             <nav class="main-nav">
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
                     <li><a href="#escapes">Escapes</a></li>
                     <li><a href="#community">Community</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
             </nav>
 
-            <button class="btn btn-primary btn-sm">Book Now</button>
+            <!-- Booking Button -->
+            <a href="#book" class="btn btn-primary btn-sm">Book Now</a>
         </div>
     </header>
 
