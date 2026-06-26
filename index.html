@@ -832,6 +832,120 @@
             }
         }
 
+        /* Itinerary Modals */
+        .itinerary-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: var(--spacing-lg);
+        }
+
+        .itinerary-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            background-color: var(--color-background-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: color var(--transition-base);
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--color-accent-orange);
+        }
+
+        .modal-body h2 {
+            color: var(--color-primary-dark);
+            margin-bottom: var(--spacing-lg);
+            margin-right: var(--spacing-xl);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .modal-price {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-scroll-content h4 {
+            color: var(--color-primary-main);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-serif);
+            font-size: var(--font-size-lg);
+        }
+
+        .modal-scroll-content p {
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Modal Responsive */
+        @media (max-width: 768px) {
+            .itinerary-modal {
+                padding: 0;
+            }
+
+            .modal-body {
+                border-radius: 0;
+                max-height: 100vh;
+                padding: var(--spacing-xl);
+                margin: auto 0;
+            }
+
+            .close-modal {
+                top: var(--spacing-md);
+                right: var(--spacing-md);
+            }
+
+            .modal-body h2 {
+                font-size: 1.25rem;
+                margin-right: var(--spacing-2xl);
+            }
+
+            .modal-price {
+                font-size: var(--font-size-base);
+            }
+
+            .modal-scroll-content h4 {
+                font-size: var(--font-size-base);
+                margin-top: var(--spacing-lg);
+            }
+
+            .modal-scroll-content p {
+                font-size: var(--font-size-sm);
+            }
+        }
+
         /* Footer */
         footer {
             background-color: var(--color-primary-dark);
@@ -1307,6 +1421,105 @@
         </div>
     </footer>
 
+    <!-- Itinerary Modals -->
+    <div id="modal-nainital" class="itinerary-modal">
+        <div class="modal-body">
+            <span class="close-modal" onclick="closeModal('modal-nainital')">&times;</span>
+            <h2>Himalayan Escape: Nainital, Kainchi Dham & Corbett</h2>
+            <p class="modal-price"><strong>Price:</strong> ₹21,000 per person (MAP Plan)</p>
+            <div class="modal-scroll-content">
+                <h4>Day 1: Arrival & Ramgarh Slow Living</h4>
+                <p>Pickup from Kathgodam/Pantnagar. Scenic drive to Ramgarh (1.5–2 hours). Check-in at Blue Mountain Homestay. Unwind with sunset views, hot chai, and an optional cozy evening bonfire.</p>
+                <h4>Day 2: Nainital & Kainchi Dham Exploration</h4>
+                <p>After breakfast, drive to Nainital to explore Naini Lake, Mall Road, and local cafés. Visit the peaceful Kainchi Dham (Neem Karoli Baba Ashram) before returning to Ramgarh by evening.</p>
+                <h4>Day 3: Mukteshwar & Bhalugaad Waterfall Trek</h4>
+                <p>Drive to Mukteshwar. Visit the iconic cliffside viewpoints at Chauli ki Jali and Mukteshwar Temple. Embark on a beautiful day trek down to the refreshing Bhalugaad Waterfall.</p>
+                <h4>Day 4: Ramgarh to Jim Corbett</h4>
+                <p>Check out after breakfast. Scenic drive to Jim Corbett (3.5–4 hours). Check-in at a beautiful boutique nature homestay/resort. Spend a relaxing evening on a peaceful guided nature walk.</p>
+                <h4>Day 5: Early Morning Safari & Departure</h4>
+                <p>Rise early for an exciting open Jeep Safari inside Corbett National Park (tickets included!). Head back for breakfast, check out, and take your drop back to Kathgodam, Pantnagar, or Delhi.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-corbett" class="itinerary-modal">
+        <div class="modal-body">
+            <span class="close-modal" onclick="closeModal('modal-corbett')">&times;</span>
+            <h2>Jim Corbett Weekend Wilderness</h2>
+            <p class="modal-price"><strong>Price:</strong> ₹12,500 per person</p>
+            <div class="modal-scroll-content">
+                <h4>Day 1: Welcome to the Jungle</h4>
+                <p>Arrive at the resort by noon. Enjoy a hearty local lunch followed by a guided nature walk along the Kosi River. Unwind by a bonfire in the evening.</p>
+                <h4>Day 2: Open Jeep Safari Day</h4>
+                <p>Early morning entry into the tiger reserve ranges for a deep-forest safari. Return for a relaxed afternoon by the pool. Evening group bonding games and musical night.</p>
+                <h4>Day 3: Forest Trails & Departure</h4>
+                <p>After a slow morning breakfast, pack up and visit the Corbett Museum before heading back to the railway station with unforgettable memories.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-kerala" class="itinerary-modal">
+        <div class="modal-body">
+            <span class="close-modal" onclick="closeModal('modal-kerala')">&times;</span>
+            <h2>Kerala Backwaters & Hills</h2>
+            <p class="modal-price"><strong>Price:</strong> ₹20,499 per person</p>
+            <div class="modal-scroll-content">
+                <h4>Day 1: Cochin to Munnar Arrival</h4>
+                <p>Pick up from Cochin and drive through scenic plantation routes, visiting Cheeyappara waterfalls. Check in at your Munnar hotel and explore the town markets.</p>
+                <h4>Day 2: Full Day Munnar Sightseeing</h4>
+                <p>Visit Eravikulam National Park (home to the mountain goat Nilgiri Tahr), the Tea Museum, Mattupetty Dam, and Echo Point.</p>
+                <h4>Day 3: Munnar to Thekkady Hill Drive</h4>
+                <p>Drive to Thekkady. Visit the massive Periyar Wildlife Sanctuary and take a deep dive into an aromatic spice plantation tour.</p>
+                <h4>Day 4: Thekkady to Alleppey Houseboat / Resort Stay</h4>
+                <p>Head down to Alleppey, the Venice of the East. Stay alongside the gorgeous backwaters, checking out Vembanad Lake and pristine local beaches.</p>
+                <h4>Day 5: Alleppey to Cochin Heritage Tour</h4>
+                <p>Drive back to Cochin. Take a heritage walk through Jew Street, the ancient Jewish Synagogue, Dutch Palace, and witness the iconic Chinese Fishing Nets at Fort Kochi.</p>
+                <h4>Day 6: Departure Journey</h4>
+                <p>After breakfast, transfer directly to Cochin Airport or Railway Station for your return flight home.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sikkim" class="itinerary-modal">
+        <div class="modal-body">
+            <span class="close-modal" onclick="closeModal('modal-sikkim')">&times;</span>
+            <h2>Sikkim & Darjeeling Queen of Hills</h2>
+            <p class="modal-price"><strong>Price:</strong> ₹20,700 per person</p>
+            <div class="modal-scroll-content">
+                <h4>Day 1: Arrival Journey to Gangtok</h4>
+                <p>Meet our driver at Bagdogra (IXB) or NJP and take a winding scenic transfer up to your hotel in Gangtok to rest for the night.</p>
+                <h4>Day 2: High-Altitude Tsomgo Lake Excursion</h4>
+                <p>Drive up to 12,400 feet to visit the stunning, sacred Tsomgo Lake and the New Baba Mandir shrine nestled in the high border passes.</p>
+                <h4>Day 3: Gangtok Sightseeing to Darjeeling Transfer</h4>
+                <p>Tour the local Flower Show, Dro-dul Chorten, and Ropeway before taking a beautiful mountain transfer to Darjeeling.</p>
+                <h4>Day 4: Iconic Tiger Hill Sunrise & Local Sights</h4>
+                <p>Rise at dawn to watch the sunrise over Mt. Khangchendzonga from Tiger Hill. Visit Ghoom Monastery, Batasia Loop, and the Himalayan Mountaineering Institute.</p>
+                <h4>Day 5: Darjeeling Departure Drop</h4>
+                <p>Enjoy breakfast looking over the tea valleys before checking out for your return drive down to NJP or Bagdogra Airport.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-meghalaya" class="itinerary-modal">
+        <div class="modal-body">
+            <span class="close-modal" onclick="closeModal('modal-meghalaya')">&times;</span>
+            <h2>Meghalaya & Assam: Clouds & Canyons</h2>
+            <p class="modal-price"><strong>Price:</strong> ₹18,800 per person</p>
+            <div class="modal-scroll-content">
+                <h4>Day 1: Guwahati Arrival to Shillong Drive</h4>
+                <p>Pick up and drive to Shillong, stopping by the massive Umiam Lake. Check in and explore the happening local Police Bazaar street market.</p>
+                <h4>Day 2: Cherrapunjee Waterfalls Day Trip</h4>
+                <p>Drive to the wettest place on earth. Check out the spectacular Nohkalikai Falls, Mawsmai Cave, Eco Park, and Seven Sisters viewpoints.</p>
+                <h4>Day 3: Mawlynnong Cleanest Village & Dawki River Boating</h4>
+                <p>Visit the cleanest village in India, cross an ancient Living Root Bridge, and go transparent boating across the crystal clear Umngnot River in Dawki.</p>
+                <h4>Day 4: Shillong to Guwahati Temple Tour</h4>
+                <p>Drive down to Guwahati. Spend your afternoon visiting the historic Kamakhya Temple and taking a relaxing sunset view walk.</p>
+                <h4>Day 5: Departure Day</h4>
+                <p>Check out after breakfast and take a quick smooth transfer to Guwahati Airport or Railway station for your journey home.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
@@ -1318,10 +1531,29 @@
 
         // Modal Handler for Escape Cards
         function openModal(modalId) {
-            console.log('Opening modal:', modalId);
-            // TODO: Add your modal implementation here
-            // You can create modal elements with IDs matching: modal-nainital, modal-corbett, modal-kerala, modal-sikkim, modal-meghalaya
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.itinerary-modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal(this.id);
+                }
+            });
+        });
 
         // Make escape cards clickable
         document.querySelectorAll('.escape-card').forEach(card => {
