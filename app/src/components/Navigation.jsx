@@ -19,7 +19,7 @@ export default function Navigation() {
       <div className="nav-container">
         <Link to="/" className="nav-logo">
           <img
-            src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s60"
+            src="https://lh3.googleusercontent.com/d/1fmybZZ7hu6kSN7Erl1VrLyAOOXzFFHGU=s60"
             alt="Gone Girl Logo"
             className="nav-logo-img"
           />
