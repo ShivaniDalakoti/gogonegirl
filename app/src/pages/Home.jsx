@@ -6,7 +6,12 @@ export default function Home() {
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section" style={{
+        backgroundImage: 'url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=600&fit=crop)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1>The world is calling. <span className="highlight">Answer it.</span></h1>
           <p className="hero-subtitle">
@@ -61,6 +66,63 @@ export default function Home() {
               <h3>Every Detail Handled</h3>
               <p>Flights, hotels, meals, activities—all sorted. Just show up.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <div className="container">
+          <h2>Real Stories, Real Adventures</h2>
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <iframe
+                width="100%"
+                height="250"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Traveler testimonial"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+              <h4>Maya's Himalayan Journey</h4>
+              <p>"This trip changed my life. I came back with new friends and an adventurous spirit!"</p>
+            </div>
+
+            <div className="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop"
+                alt="Priya's adventure"
+                className="testimonial-image"
+              />
+              <h4>Priya's Kerala Experience</h4>
+              <p>"The best decision I made this year. Safety, friendship, and unforgettable moments!"</p>
+            </div>
+
+            <div className="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=250&fit=crop"
+                alt="Aisha's wildlife trek"
+                className="testimonial-image"
+              />
+              <h4>Aisha's Wildlife Trek</h4>
+              <p>"I felt safe, supported, and truly alive. Can't wait for the next trip!"</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="gallery-section">
+        <div className="container">
+          <h2>Moments Worth Remembering</h2>
+          <div className="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Mountain adventure" />
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Beach sunset" />
+            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&h=300&fit=crop" alt="Wildlife safari" />
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop" alt="Group photo" />
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop" alt="Trekking" />
+            <img src="https://images.unsplash.com/photo-1537225228614-b4fad34a0b60?w=400&h=300&fit=crop" alt="Bonfire night" />
           </div>
         </div>
       </section>

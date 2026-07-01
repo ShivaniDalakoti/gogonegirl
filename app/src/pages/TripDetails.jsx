@@ -34,6 +34,14 @@ export default function TripDetails() {
         '24/7 support & guides',
         'Ground transportation'
       ],
+      gallery: [
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1537225228614-b4fad34a0b60?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
+      ],
       itinerary: [
         {
           day: 1,
@@ -106,6 +114,15 @@ export default function TripDetails() {
           <section className="trip-description">
             <h2>About This Trip</h2>
             <p>{trip.description}</p>
+          </section>
+
+          <section className="trip-gallery">
+            <h2>Gallery</h2>
+            <div className="gallery-grid">
+              {trip.gallery && trip.gallery.map((image, idx) => (
+                <img key={idx} src={image} alt={`${trip.title} - Image ${idx + 1}`} />
+              ))}
+            </div>
           </section>
 
           <section className="highlights">
