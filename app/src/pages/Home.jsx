@@ -117,12 +117,22 @@ export default function Home() {
         <div className="container">
           <h2>Moments Worth Remembering</h2>
           <div className="gallery-grid">
-            <img src="https://picsum.photos/400/300?random=3" alt="Mountain adventure" />
-            <img src="https://picsum.photos/400/300?random=4" alt="Beach sunset" />
-            <img src="https://picsum.photos/400/300?random=5" alt="Wildlife safari" />
-            <img src="https://picsum.photos/400/300?random=6" alt="Group photo" />
-            <img src="https://picsum.photos/400/300?random=7" alt="Trekking" />
-            <img src="https://picsum.photos/400/300?random=8" alt="Bonfire night" />
+            <img src="https://drive.google.com/uc?export=view&id=1Es47CP9N2uHOjHzKu4lijy7T6qTNXYo5" alt="Gone Girl moment 1" />
+            <img src="https://drive.google.com/uc?export=view&id=1fTw5Psq9qsnbTVtyIpEJzF0JX95Ynaop" alt="Gone Girl moment 2" />
+            <img src="https://drive.google.com/uc?export=view&id=123Mw6xZNJovMoVIhvv5OSxXjMfGyKW-h" alt="Gone Girl moment 3" />
+            <img src="https://drive.google.com/uc?export=view&id=1z5RWK0ckwb3CcoH0lJJYqB90X2k5skrU" alt="Gone Girl moment 4" />
+            <img src="https://drive.google.com/uc?export=view&id=1iLjpn7ghUysHxZaccYYEEpCNPNGp-sRE" alt="Gone Girl moment 5" />
+            <img src="https://drive.google.com/uc?export=view&id=1163R1NvvCl-i6hN4RmiNMWF-M6rSBtzM" alt="Gone Girl moment 6" />
+            <img src="https://drive.google.com/uc?export=view&id=166cjx2Upu0ZP1sjuPoKwoqDOeB40vuRL" alt="Gone Girl moment 7" />
+            <img src="https://drive.google.com/uc?export=view&id=1mLE-VCvoRNkrWjfKy6hha7YvOGTcHvUs" alt="Gone Girl moment 8" />
+            <img src="https://drive.google.com/uc?export=view&id=1zbQYae-9zmO3xa-ZSuTpzPW2D9fXpzbS" alt="Gone Girl moment 9" />
+            <img src="https://drive.google.com/uc?export=view&id=15XS1I8OPCL5_YSTMdWoeFYzb02WGEeYF" alt="Gone Girl moment 10" />
+            <img src="https://drive.google.com/uc?export=view&id=1NqPPrSmso9m0tepldZnXmpuxGQ9IhuhP" alt="Gone Girl moment 11" />
+            <img src="https://drive.google.com/uc?export=view&id=1leByubQ4M9kWBgLj174BiATiKcsxPeFI" alt="Gone Girl moment 12" />
+            <img src="https://drive.google.com/uc?export=view&id=1na68gCG83WP5_h-HbnnkotXzhn1xMUrN" alt="Gone Girl moment 13" />
+            <img src="https://drive.google.com/uc?export=view&id=18vSnw4LYCOvEN_4PnL_dttQaRjPa7XFy" alt="Gone Girl moment 14" />
+            <img src="https://drive.google.com/uc?export=view&id=1aK9yBZTuB7NDOGj183cXnWDD5ie2_hYB" alt="Gone Girl moment 15" />
+            <img src="https://drive.google.com/uc?export=view&id=1f9t4KzfMTu7ORtYZ3hNRpfr1JOhB3uvv" alt="Gone Girl moment 16" />
           </div>
         </div>
       </section>
