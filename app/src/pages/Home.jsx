@@ -91,7 +91,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+                src="https://picsum.photos/400/250?random=1"
                 alt="Priya's adventure"
                 className="testimonial-image"
               />
@@ -101,7 +101,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
+                src="https://picsum.photos/400/250?random=2"
                 alt="Aisha's wildlife trek"
                 className="testimonial-image"
               />
@@ -117,12 +117,12 @@ export default function Home() {
         <div className="container">
           <h2>Moments Worth Remembering</h2>
           <div className="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" alt="Mountain adventure" />
-            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19" alt="Beach sunset" />
-            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801" alt="Wildlife safari" />
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828" alt="Group photo" />
-            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800" alt="Trekking" />
-            <img src="https://images.unsplash.com/photo-1537225228614-b4fad34a0b60" alt="Bonfire night" />
+            <img src="https://picsum.photos/400/300?random=3" alt="Mountain adventure" />
+            <img src="https://picsum.photos/400/300?random=4" alt="Beach sunset" />
+            <img src="https://picsum.photos/400/300?random=5" alt="Wildlife safari" />
+            <img src="https://picsum.photos/400/300?random=6" alt="Group photo" />
+            <img src="https://picsum.photos/400/300?random=7" alt="Trekking" />
+            <img src="https://picsum.photos/400/300?random=8" alt="Bonfire night" />
           </div>
         </div>
       </section>

@@ -35,12 +35,12 @@ export default function TripDetails() {
         'Ground transportation'
       ],
       gallery: [
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4',
-        'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800',
-        'https://images.unsplash.com/photo-1537225228614-b4fad34a0b60',
-        'https://images.unsplash.com/photo-1488646953014-85cb44e25828',
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19',
-        'https://images.unsplash.com/photo-1516426122078-c23e76319801',
+        'https://picsum.photos/400/300?random=10',
+        'https://picsum.photos/400/300?random=11',
+        'https://picsum.photos/400/300?random=12',
+        'https://picsum.photos/400/300?random=13',
+        'https://picsum.photos/400/300?random=14',
+        'https://picsum.photos/400/300?random=15',
       ],
       itinerary: [
         {
