@@ -28,7 +28,7 @@ export default function Home() {
           <div className="testimonials-grid">
             <div className="testimonial-card">
               <img
-                src="https://drive.google.com/uc?export=view&id=1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM"
+                src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s400"
                 alt="Traveler"
                 className="testimonial-image"
               />
@@ -38,7 +38,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://drive.google.com/uc?export=view&id=17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7"
+                src="https://lh3.googleusercontent.com/d/17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7=s400"
                 alt="Traveler"
                 className="testimonial-image"
               />
@@ -48,7 +48,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://drive.google.com/uc?export=view&id=1JBJT9r2Ql0lAJvsz9t11NV3y2ai0TuGf"
+                src="https://lh3.googleusercontent.com/d/1JBJT9r2Ql0lAJvsz9t11NV3y2ai0TuGf=s400"
                 alt="Traveler"
                 className="testimonial-image"
               />
@@ -64,22 +64,22 @@ export default function Home() {
         <div className="container">
           <h2>Our community in moments</h2>
           <div className="gallery-grid">
-            <img src="https://drive.google.com/uc?export=view&id=1Es47CP9N2uHOjHzKu4lijy7T6qTNXYo5" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1fTw5Psq9qsnbTVtyIpEJzF0JX95Ynaop" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=123Mw6xZNJovMoVIhvv5OSxXjMfGyKW-h" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1z5RWK0ckwb3CcoH0lJJYqB90X2k5skrU" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1iLjpn7ghUysHxZaccYYEEpCNPNGp-sRE" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1163R1NvvCl-i6hN4RmiNMWF-M6rSBtzM" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=166cjx2Upu0ZP1sjuPoKwoqDOeB40vuRL" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1mLE-VCvoRNkrWjfKy6hha7YvOGTcHvUs" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1zbQYae-9zmO3xa-ZSuTpzPW2D9fXpzbS" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=15XS1I8OPCL5_YSTMdWoeFYzb02WGEeYF" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1NqPPrSmso9m0tepldZnXmpuxGQ9IhuhP" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1leByubQ4M9kWBgLj174BiATiKcsxPeFI" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1na68gCG83WP5_h-HbnnkotXzhn1xMUrN" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=18vSnw4LYCOvEN_4PnL_dttQaRjPa7XFy" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1aK9yBZTuB7NDOGj183cXnWDD5ie2_hYB" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1f9t4KzfMTu7ORtYZ3hNRpfr1JOhB3uvv" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1Es47CP9N2uHOjHzKu4lijy7T6qTNXYo5=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1fTw5Psq9qsnbTVtyIpEJzF0JX95Ynaop=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/123Mw6xZNJovMoVIhvv5OSxXjMfGyKW-h=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1z5RWK0ckwb3CcoH0lJJYqB90X2k5skrU=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1iLjpn7ghUysHxZaccYYEEpCNPNGp-sRE=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1163R1NvvCl-i6hN4RmiNMWF-M6rSBtzM=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/166cjx2Upu0ZP1sjuPoKwoqDOeB40vuRL=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1mLE-VCvoRNkrWjfKy6hha7YvOGTcHvUs=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1zbQYae-9zmO3xa-ZSuTpzPW2D9fXpzbS=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/15XS1I8OPCL5_YSTMdWoeFYzb02WGEeYF=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1NqPPrSmso9m0tepldZnXmpuxGQ9IhuhP=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1leByubQ4M9kWBgLj174BiATiKcsxPeFI=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1na68gCG83WP5_h-HbnnkotXzhn1xMUrN=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/18vSnw4LYCOvEN_4PnL_dttQaRjPa7XFy=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1aK9yBZTuB7NDOGj183cXnWDD5ie2_hYB=s600" alt="Moment" />
+            <img src="https://lh3.googleusercontent.com/d/1f9t4KzfMTu7ORtYZ3hNRpfr1JOhB3uvv=s600" alt="Moment" />
           </div>
         </div>
       </section>
