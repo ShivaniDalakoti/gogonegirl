@@ -28,7 +28,7 @@ export default function Home() {
           <div className="testimonials-grid">
             <div className="testimonial-card">
               <img
-                src="https://drive.google.com/uc?export=view&id=17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7"
+                src="https://picsum.photos/400/280?random=20"
                 alt="Priya"
                 className="testimonial-image"
               />
@@ -38,7 +38,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://drive.google.com/uc?export=view&id=1JBJT9r2Ql0lAJvsz9t11NV3y2ai0TuGf"
+                src="https://picsum.photos/400/280?random=21"
                 alt="Aisha"
                 className="testimonial-image"
               />
@@ -48,7 +48,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://drive.google.com/uc?export=view&id=1eA2gkOLIzhUUaR9mWQx-Haa7JMDX7r_s"
+                src="https://picsum.photos/400/280?random=22"
                 alt="Maya"
                 className="testimonial-image"
               />
@@ -64,18 +64,18 @@ export default function Home() {
         <div className="container">
           <h2>Our community in moments</h2>
           <div className="gallery-grid">
-            <img src="https://drive.google.com/uc?export=view&id=1Es47CP9N2uHOjHzKu4lijy7T6qTNXYo5" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1fTw5Psq9qsnbTVtyIpEJzF0JX95Ynaop" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=123Mw6xZNJovMoVIhvv5OSxXjMfGyKW-h" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1z5RWK0ckwb3CcoH0lJJYqB90X2k5skrU" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1iLjpn7ghUysHxZaccYYEEpCNPNGp-sRE" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1163R1NvvCl-i6hN4RmiNMWF-M6rSBtzM" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=166cjx2Upu0ZP1sjuPoKwoqDOeB40vuRL" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1mLE-VCvoRNkrWjfKy6hha7YvOGTcHvUs" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1zbQYae-9zmO3xa-ZSuTpzPW2D9fXpzbS" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=15XS1I8OPCL5_YSTMdWoeFYzb02WGEeYF" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1NqPPrSmso9m0tepldZnXmpuxGQ9IhuhP" alt="Moment" />
-            <img src="https://drive.google.com/uc?export=view&id=1leByubQ4M9kWBgLj174BiATiKcsxPeFI" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=30" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=31" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=32" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=33" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=34" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=35" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=36" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=37" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=38" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=39" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=40" alt="Moment" />
+            <img src="https://picsum.photos/400/300?random=41" alt="Moment" />
           </div>
         </div>
       </section>

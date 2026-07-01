@@ -28,10 +28,17 @@
   transition: transform 0.2s;
 }
 
-.nav-logo-img {
+.logo-text {
   width: 45px;
   height: 45px;
-  object-fit: contain;
+  background: linear-gradient(135deg, #FF8C42, #E67E2E);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .nav-logo:hover {

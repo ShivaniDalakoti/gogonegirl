@@ -18,7 +18,7 @@ export default function Navigation() {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src="https://drive.google.com/uc?export=view&id=1fmybZZ7hu6kSN7Erl1VrLyAOOXzFFHGU" alt="Gone Girl" className="nav-logo-img" />
+          <span className="logo-text">GG</span>
           <span>Go Gone Girl</span>
         </Link>
 
