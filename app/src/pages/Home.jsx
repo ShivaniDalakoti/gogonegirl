@@ -76,22 +76,8 @@ export default function Home() {
           <h2>Real Stories, Real Adventures</h2>
           <div className="testimonials-grid">
             <div className="testimonial-card">
-              <iframe
-                width="100%"
-                height="250"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Traveler testimonial"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-              <h4>Maya's Himalayan Journey</h4>
-              <p>"This trip changed my life. I came back with new friends and an adventurous spirit!"</p>
-            </div>
-
-            <div className="testimonial-card">
               <img
-                src="https://picsum.photos/400/250?random=1"
+                src="https://drive.google.com/uc?export=view&id=17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7"
                 alt="Priya's adventure"
                 className="testimonial-image"
               />
@@ -101,12 +87,22 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://picsum.photos/400/250?random=2"
+                src="https://drive.google.com/uc?export=view&id=1JBJT9r2Ql0lAJvsz9t11NV3y2ai0TuGf"
                 alt="Aisha's wildlife trek"
                 className="testimonial-image"
               />
               <h4>Aisha's Wildlife Trek</h4>
               <p>"I felt safe, supported, and truly alive. Can't wait for the next trip!"</p>
+            </div>
+
+            <div className="testimonial-card">
+              <img
+                src="https://drive.google.com/uc?export=view&id=1eA2gkOLIzhUUaR9mWQx-Haa7JMDX7r_s"
+                alt="Maya's adventure"
+                className="testimonial-image"
+              />
+              <h4>Maya's Himalayan Journey</h4>
+              <p>"This trip changed my life. I came back with new friends and an adventurous spirit!"</p>
             </div>
           </div>
         </div>
