@@ -7,7 +7,7 @@ export default function Home() {
     <div className="home">
       {/* Hero Section */}
       <section className="hero-section" style={{
-        backgroundImage: 'url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=600&fit=crop)',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1488646953014-85cb44e25828)',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
@@ -91,7 +91,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
                 alt="Priya's adventure"
                 className="testimonial-image"
               />
@@ -101,7 +101,7 @@ export default function Home() {
 
             <div className="testimonial-card">
               <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=250&fit=crop"
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
                 alt="Aisha's wildlife trek"
                 className="testimonial-image"
               />
@@ -117,12 +117,12 @@ export default function Home() {
         <div className="container">
           <h2>Moments Worth Remembering</h2>
           <div className="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Mountain adventure" />
-            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Beach sunset" />
-            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&h=300&fit=crop" alt="Wildlife safari" />
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop" alt="Group photo" />
-            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop" alt="Trekking" />
-            <img src="https://images.unsplash.com/photo-1537225228614-b4fad34a0b60?w=400&h=300&fit=crop" alt="Bonfire night" />
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" alt="Mountain adventure" />
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19" alt="Beach sunset" />
+            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801" alt="Wildlife safari" />
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828" alt="Group photo" />
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800" alt="Trekking" />
+            <img src="https://images.unsplash.com/photo-1537225228614-b4fad34a0b60" alt="Bonfire night" />
           </div>
         </div>
       </section>
