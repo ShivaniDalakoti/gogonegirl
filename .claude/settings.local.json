@@ -8,7 +8,10 @@
       "Bash(git push *)",
       "mcp__figma__create_new_file",
       "mcp__figma__use_figma",
-      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')"
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "Bash(npx cap *)",
+      "Bash(npm run *)",
+      "Bash(npm install *)"
     ]
   }
 }

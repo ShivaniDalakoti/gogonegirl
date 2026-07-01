@@ -1,0 +1,15 @@
+{
+  "buildCommand": "cd app && npm run build",
+  "devCommand": "cd app && npm run dev",
+  "installCommand": "npm install && cd app && npm install",
+  "framework": "vite",
+  "outputDirectory": "app/dist",
+  "public": "app/public",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
