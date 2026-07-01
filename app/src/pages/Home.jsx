@@ -28,32 +28,32 @@ export default function Home() {
           <div className="testimonials-grid">
             <div className="testimonial-card">
               <img
-                src="https://drive.google.com/uc?export=view&id=17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7"
-                alt="Priya"
+                src="https://drive.google.com/uc?export=view&id=1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM"
+                alt="Traveler"
                 className="testimonial-image"
               />
               <p>"The best decision I made this year!"</p>
-              <h4>Priya</h4>
+              <h4>Gone Girl Traveler</h4>
+            </div>
+
+            <div className="testimonial-card">
+              <img
+                src="https://drive.google.com/uc?export=view&id=17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7"
+                alt="Traveler"
+                className="testimonial-image"
+              />
+              <p>"I felt safe, supported, and truly alive!"</p>
+              <h4>Gone Girl Traveler</h4>
             </div>
 
             <div className="testimonial-card">
               <img
                 src="https://drive.google.com/uc?export=view&id=1JBJT9r2Ql0lAJvsz9t11NV3y2ai0TuGf"
-                alt="Aisha"
-                className="testimonial-image"
-              />
-              <p>"I felt safe, supported, and truly alive!"</p>
-              <h4>Aisha</h4>
-            </div>
-
-            <div className="testimonial-card">
-              <img
-                src="https://drive.google.com/uc?export=view&id=1eA2gkOLIzhUUaR9mWQx-Haa7JMDX7r_s"
-                alt="Maya"
+                alt="Traveler"
                 className="testimonial-image"
               />
               <p>"This trip changed my life completely!"</p>
-              <h4>Maya</h4>
+              <h4>Gone Girl Traveler</h4>
             </div>
           </div>
         </div>
