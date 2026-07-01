@@ -95,7 +95,7 @@ export default function Home() {
           <div className="founders-grid">
             <div className="founder-card">
               <img
-                src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s500"
+                src="https://lh3.googleusercontent.com/d/1eA2gkOLIzhUUaR9mWQx-Haa7JMDX7r_s=s500"
                 alt="Shivani Dalakoti"
                 className="founder-image"
               />
@@ -106,7 +106,7 @@ export default function Home() {
 
             <div className="founder-card">
               <img
-                src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s500"
+                src="https://lh3.googleusercontent.com/d/1Kk_rDDQgpvkInVkdPx9AYc3CsMfVzio-=s500"
                 alt="Aanshi Chauhan"
                 className="founder-image"
               />
