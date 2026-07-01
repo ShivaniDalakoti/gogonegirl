@@ -1,0 +1,30 @@
+{
+  "name": "Go Gone Girl - Women's Travel Adventures",
+  "short_name": "Gone Girl",
+  "description": "Curated, women-focused travel experiences for solo travelers and groups seeking adventure, safety, and sisterhood.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2B7A78",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://drive.google.com/uc?export=view&id=1fmybZZ7hu6kSN7Erl1VrLyAOOXzFFHGU",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://drive.google.com/uc?export=view&id=1fmybZZ7hu6kSN7Erl1VrLyAOOXzFFHGU",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://drive.google.com/uc?export=view&id=1fmybZZ7hu6kSN7Erl1VrLyAOOXzFFHGU",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
