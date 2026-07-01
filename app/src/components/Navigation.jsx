@@ -18,7 +18,11 @@ export default function Navigation() {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <span className="logo-text">GG</span>
+          <img
+            src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s60"
+            alt="Gone Girl Logo"
+            className="nav-logo-img"
+          />
           <span>Go Gone Girl</span>
         </Link>
 
