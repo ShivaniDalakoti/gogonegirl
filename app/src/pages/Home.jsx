@@ -87,6 +87,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section className="about-section">
+        <div className="container">
+          <h2>About Us</h2>
+          <p className="about-subtitle">Meet the founders behind Gone Girl</p>
+          <div className="founders-grid">
+            <div className="founder-card">
+              <img
+                src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s500"
+                alt="Shivani Dalakoti"
+                className="founder-image"
+              />
+              <h3>Shivani Dalakoti</h3>
+              <p className="founder-title">Founder & CEO</p>
+              <p className="founder-bio">Travel entrepreneur passionate about creating safe, empowering travel experiences for women. Shivani believes that travel is transformative and every woman deserves the confidence to explore the world.</p>
+            </div>
+
+            <div className="founder-card">
+              <img
+                src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s500"
+                alt="Aanshi Chauhan"
+                className="founder-image"
+              />
+              <h3>Aanshi Chauhan</h3>
+              <p className="founder-title">Co-Founder</p>
+              <p className="founder-bio">Adventure enthusiast and community builder. Aanshi is dedicated to fostering meaningful connections between women travelers and creating unforgettable experiences that celebrate sisterhood and adventure.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="cta-section">
         <h2>Join our community</h2>
