@@ -3,7 +3,6 @@
 }
 
 .hero-section {
-  background: linear-gradient(135deg, rgba(43, 122, 120, 0.1) 0%, rgba(255, 140, 66, 0.08) 100%);
   padding: 6rem 5%;
   text-align: center;
   min-height: 70vh;
@@ -12,6 +11,9 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed;
 }
 
 .hero-overlay {
@@ -20,8 +22,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(31, 61, 58, 0.5);
+  background: rgba(31, 61, 58, 0.6);
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
