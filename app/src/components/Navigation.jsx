@@ -18,7 +18,8 @@ export default function Navigation() {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <span>🧳</span> Go Gone Girl
+          <img src="/logo.svg" alt="Gone Girl" className="nav-logo-img" />
+          <span>Go Gone Girl</span>
         </Link>
 
         <button
