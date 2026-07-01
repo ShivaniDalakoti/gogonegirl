@@ -27,32 +27,35 @@ export default function Home() {
           <h2>Hear from our travelers</h2>
           <div className="testimonials-grid">
             <div className="testimonial-card">
-              <img
-                src="https://lh3.googleusercontent.com/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM=s400"
-                alt="Traveler"
-                className="testimonial-image"
-              />
-              <p>"The best decision I made this year!"</p>
+              <iframe
+                src="https://drive.google.com/file/d/1unx2LKrkJ22vjF29ZHwzWBBvuY0NIrTM/preview"
+                width="100%"
+                height="280"
+                allow="autoplay"
+                className="testimonial-video"
+              ></iframe>
               <h4>Gone Girl Traveler</h4>
             </div>
 
             <div className="testimonial-card">
-              <img
-                src="https://lh3.googleusercontent.com/d/17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7=s400"
-                alt="Traveler"
-                className="testimonial-image"
-              />
-              <p>"I felt safe, supported, and truly alive!"</p>
+              <iframe
+                src="https://drive.google.com/file/d/17hRBcFJ2HgxVLC9_v4J-E9YHsIlkOir7/preview"
+                width="100%"
+                height="280"
+                allow="autoplay"
+                className="testimonial-video"
+              ></iframe>
               <h4>Gone Girl Traveler</h4>
             </div>
 
             <div className="testimonial-card">
-              <img
-                src="https://lh3.googleusercontent.com/d/1JBJT9r2Ql0lAJvsz9t11NV3y2ai0TuGf=s400"
-                alt="Traveler"
-                className="testimonial-image"
-              />
-              <p>"This trip changed my life completely!"</p>
+              <iframe
+                src="https://drive.google.com/file/d/1JBJT9r2Ql0lAJvsz9t11NV3y2ai0TuGf/preview"
+                width="100%"
+                height="280"
+                allow="autoplay"
+                className="testimonial-video"
+              ></iframe>
               <h4>Gone Girl Traveler</h4>
             </div>
           </div>
