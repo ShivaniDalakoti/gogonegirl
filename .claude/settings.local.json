@@ -14,7 +14,9 @@
       "Bash(npm install *)",
       "Bash(docker --version)",
       "Bash(xargs -I {} git config --file=.gitmodules --remove-section {})",
-      "Bash(rm -f .gitmodules)"
+      "Bash(rm -f .gitmodules)",
+      "Bash(echo \"# Updated for Goa trip deployment\")",
+      "Bash(echo \"# Gone Girl Travel\")"
     ]
   }
 }
