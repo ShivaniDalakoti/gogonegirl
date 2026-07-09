@@ -11,7 +11,10 @@
       "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
       "Bash(npx cap *)",
       "Bash(npm run *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(docker --version)",
+      "Bash(xargs -I {} git config --file=.gitmodules --remove-section {})",
+      "Bash(rm -f .gitmodules)"
     ]
   }
 }

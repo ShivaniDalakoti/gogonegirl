@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gone Girl - Investor Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2B7A78;
+            --accent: #FF8C42;
+            --dark: #1F3D3A;
+            --light: #5A8A84;
+            --bg: #F0F7F5;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000;
+            color: #333;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .slides-container {
+            display: flex;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 60px;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--white) 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .slide-subtitle {
+            font-size: 1.8rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .slide-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .slide-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-content ul {
+            margin-left: 2rem;
+        }
+
+        .slide-content li {
+            margin-bottom: 1rem;
+            margin-left: 1rem;
+        }
+
+        .accent-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .primary-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Slide specific styles */
+        .slide-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .slide-hero .slide-title {
+            color: var(--white);
+            font-size: 4rem;
+        }
+
+        .slide-hero .slide-subtitle {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .slide-dark {
+            background: linear-gradient(135deg, var(--dark) 0%, #0f2322 100%);
+            color: var(--white);
+        }
+
+        .slide-dark .slide-title {
+            color: var(--white);
+        }
+
+        .slide-dark .slide-subtitle {
+            color: var(--accent);
+        }
+
+        .slide-dark .slide-content {
+            color: #ddd;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        /* Grid layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: var(--dark);
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff7a1f 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: white;
+            border: 2px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 0.5rem;
+        }
+
+        .stat-box .number {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .stat-box .label {
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                page-break-after: always;
+                display: flex !important;
+                position: relative;
+                height: auto;
+                min-height: 100vh;
+            }
+            .nav-buttons, .slide-number {
+                display: none;
+            }
+        }
+
+        /* Keyboard hint */
+        .keyboard-hint {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="keyboard-hint">← → or Space to navigate</div>
+    <div class="slide-number"><span id="current-slide">1</span> / <span id="total-slides">20</span></div>
+
+    <div class="slides-container">
+        <!-- Slide 1: Title -->
+        <div class="slide slide-hero active">
+            <h1 class="slide-title">Gone Girl</h1>
+            <p class="slide-subtitle">The Social Network for Women Travel</p>
+            <p style="font-size: 1.3rem; margin-top: 3rem; color: var(--accent);">Investor Pitch Deck</p>
+        </div>
+
+        <!-- Slide 2: Executive Summary -->
+        <div class="slide">
+            <h2 class="slide-title">The Opportunity</h2>
+            <div class="slide-content">
+                <p><span class="primary-text">$100B+</span> annual spend by women travelers</p>
+                <p>Yet <span class="accent-text">zero platforms</span> built for women-specific needs</p>
+                <p style="margin-top: 2rem;">Women want: <strong>Trust, Community, Safety, Belonging</strong></p>
+                <p>Platforms offer: <strong>Price, Logistics, Transactions</strong></p>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    Gone Girl bridges this gap with community-first travel
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Core Problem -->
+        <div class="slide">
+            <h2 class="slide-title">The Problem</h2>
+            <div class="slide-content">
+                <p><strong>Women represent 52%+ of international travelers</strong></p>
+                <p style="margin-top: 1.5rem;">But they're served by one-size-fits-all platforms that ignore their needs:</p>
+                <ul>
+                    <li>72% of women cite <strong>safety</strong> as #1 travel priority</li>
+                    <li>68% would pay premium for <strong>women-verified communities</strong></li>
+                    <li>Women solo travel +60% post-COVID (vs. 12% male growth)</li>
+                    <li>$0 in venture funding → women-focused travel startups</li>
+                </ul>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    There's a massive gap between what women want and what exists
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Target Audience -->
+        <div class="slide">
+            <h2 class="slide-title">Target Audience</h2>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div>
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Demographics</h3>
+                        <ul style="margin-left: 0;">
+                            <li>Age: 22-45 (skew millennial)</li>
+                            <li>Income: $35K-$150K+</li>
+                            <li>Travel: 3-6 trips/year</li>
+                            <li>Markets: US, UK, AUS, CA, India</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Psychographics</h3>
+                        <ul style="margin-left: 0;">
+                            <li>Value: Community, authenticity</li>
+                            <li>Pain: Loneliness, safety concerns</li>
+                            <li>Behavior: Active on social media</li>
+                            <li>Driver: Belonging, social proof</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    25M+ high-intent women travelers globally
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Market Size - TAM -->
+        <div class="slide">
+            <h2 class="slide-title">Total Addressable Market (TAM)</h2>
+            <div class="slide-content">
+                <div class="grid-3" style="margin-top: 2rem;">
+                    <div class="stat-box">
+                        <div class="number">$100B</div>
+                        <div class="label">Annual women's travel spend</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">28%</div>
+                        <div class="label">% premium segment</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">$15-20B</div>
+                        <div class="label">Platform TAM</div>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; text-align: center; font-size: 1.3rem;">
+                    <strong>120M women travelers globally × $3,000 avg spend = $360B market</strong>
+                </p>
+                <p style="text-align: center; color: var(--accent); font-weight: 600; margin-top: 1rem;">
+                    Platform take rate potential (15-20%): $15-20B TAM
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Market Size - SAM -->
+        <div class="slide">
+            <h2 class="slide-title">Serviceable Addressable Market (SAM)</h2>
+            <div class="slide-content">
+                <p style="margin-bottom: 2rem;">English-speaking, high-travel countries (focus markets):</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Female Travelers/Year</th>
+                            <th>Avg Spend</th>
+                            <th>Market Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>USA</td>
+                            <td>45M</td>
+                            <td>$3,500</td>
+                            <td>$157B</td>
+                        </tr>
+                        <tr>
+                            <td>UK</td>
+                            <td>12M</td>
+                            <td>$2,800</td>
+                            <td>$33B</td>
+                        </tr>
+                        <tr>
+                            <td>Australia</td>
+                            <td>6M</td>
+                            <td>$3,200</td>
+                            <td>$19B</td>
+                        </tr>
+                        <tr>
+                            <td>Canada</td>
+                            <td>8M</td>
+                            <td>$3,000</td>
+                            <td>$24B</td>
+                        </tr>
+                        <tr>
+                            <td>India</td>
+                            <td>15M</td>
+                            <td>$1,200</td>
+                            <td>$18B</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    Total SAM: ~$250B | Platform opportunity (15-20%): $37-50B
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Market Size - SOM -->
+        <div class="slide">
+            <h2 class="slide-title">Serviceable Obtainable Market (SOM)</h2>
+            <div class="slide-content">
+                <p style="margin-bottom: 2rem;"><strong>5-Year Projections:</strong></p>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Year 1-2: US Focus</h3>
+                        <p>Users: 50K-250K</p>
+                        <p>GMV: $15-75M</p>
+                        <p>Market share: 0.01% of SAM</p>
+                    </div>
+                    <div class="card">
+                        <h3>Year 3-4: Expand</h3>
+                        <p>Users: 500K-1.5M</p>
+                        <p>GMV: $500M-1.5B</p>
+                        <p>Market share: 1-3% of SAM</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    Conservative SOM (Year 3): $500M-$1B GMV capture
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Value Proposition -->
+        <div class="slide">
+            <h2 class="slide-title">Value Proposition vs. Competitors</h2>
+            <div class="slide-content">
+                <table style="font-size: 0.95rem;">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th style="color: var(--accent);">Gone Girl</th>
+                            <th>Airbnb</th>
+                            <th>Intrepid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Women-verified community</strong></td>
+                            <td style="color: var(--accent); font-weight: 600;">✅ Core</td>
+                            <td>❌ No</td>
+                            <td>❌ No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Community chat pre-trip</strong></td>
+                            <td style="color: var(--accent); font-weight: 600;">✅ Yes</td>
+                            <td>❌ No</td>
+                            <td>❌ No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Safety-first design</strong></td>
+                            <td style="color: var(--accent); font-weight: 600;">✅ Yes</td>
+                            <td>⚠️ Secondary</td>
+                            <td>⚠️ Secondary</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Women-curated experiences</strong></td>
+                            <td style="color: var(--accent); font-weight: 600;">✅ Yes</td>
+                            <td>⚠️ Mixed</td>
+                            <td>❌ No</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 2rem; text-align: center; font-weight: 600; color: var(--primary);">
+                    No direct competitors. Zero venture-backed women-travel platforms.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Our Solution -->
+        <div class="slide">
+            <h2 class="slide-title">Our Solution: Gone Girl Platform</h2>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div>
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Core Offering</h3>
+                        <ul style="margin-left: 0; font-size: 1rem;">
+                            <li>Curated trips for women only</li>
+                            <li>Verified women-only groups</li>
+                            <li>Community-first booking</li>
+                            <li>Pre-trip community & chat</li>
+                            <li>Post-trip gallery & connections</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">MVP Shipped ✅</h3>
+                        <ul style="margin-left: 0; font-size: 1rem;">
+                            <li>8-page React app (production-ready)</li>
+                            <li>4 hero trips with real data</li>
+                            <li>User authentication</li>
+                            <li>Multi-step booking flow</li>
+                            <li>Admin dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Business Model -->
+        <div class="slide">
+            <h2 class="slide-title">Business Model</h2>
+            <div class="slide-content">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem;">Revenue Streams</h3>
+                <div class="grid-2" style="gap: 1.5rem;">
+                    <div class="card">
+                        <h3>Primary: Booking Commission</h3>
+                        <p>15-20% on trip bookings</p>
+                        <p style="margin-top: 0.5rem;"><strong>Example:</strong> $3,000 × 10 women × 18% = $5,400/trip</p>
+                        <p style="margin-top: 0.5rem; color: var(--accent); font-weight: 600;">50+ trips/month = $270K MRR</p>
+                    </div>
+                    <div class="card">
+                        <h3>Secondary & Tertiary</h3>
+                        <p><strong>Premium features:</strong> Verified badges, enhanced profiles (2-3% of revenue)</p>
+                        <p style="margin-top: 0.5rem;"><strong>Partnerships:</strong> Travel insurance, gear, brand collaborations (Year 2+)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Unit Economics -->
+        <div class="slide">
+            <h2 class="slide-title">Unit Economics (Highly Favorable)</h2>
+            <div class="slide-content">
+                <h3 style="color: var(--primary); margin-bottom: 2rem; font-size: 1.3rem;">Per Booking Economics</h3>
+                <div class="grid-3" style="gap: 1rem; margin-bottom: 2rem;">
+                    <div class="stat-box">
+                        <div class="number">$3K</div>
+                        <div class="label">Trip Price</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">$540</div>
+                        <div class="label">Commission (18%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">15.3%</div>
+                        <div class="label">Gross Margin</div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;">Per User (Year 1-2)</h3>
+                <table style="font-size: 1rem;">
+                    <tr>
+                        <td><strong>CAC (Customer Acquisition Cost)</strong></td>
+                        <td style="text-align: right; color: var(--accent); font-weight: 600;">$25-50</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LTV (Lifetime Value)</strong></td>
+                        <td style="text-align: right; color: var(--accent); font-weight: 600;">$1,380</td>
+                    </tr>
+                    <tr style="background: #f0f7f5;">
+                        <td><strong>LTV:CAC Ratio</strong></td>
+                        <td style="text-align: right; color: var(--primary); font-weight: 700; font-size: 1.2rem;">27:1 ✅</td>
+                    </tr>
+                </table>
+                <p style="margin-top: 1.5rem; color: #666; font-size: 0.95rem;">Payback period: 2 weeks | This is a multiplier business</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Go-to-Market -->
+        <div class="slide">
+            <h2 class="slide-title">Go-to-Market Strategy</h2>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Phase 1: Founder-Led (M1-6)</h3>
+                        <p><strong>Goal:</strong> 5K-10K users</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 1rem; font-size: 0.95rem;">
+                            <li>Content (Substack, TikTok, Instagram)</li>
+                            <li>Community partnerships</li>
+                            <li>Travel bloggers & influencers</li>
+                            <li>Organic growth focus</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Phase 2: Product-Led (M6-18)</h3>
+                        <p><strong>Goal:</strong> 50K-100K users</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 1rem; font-size: 0.95rem;">
+                            <li>Referral programs</li>
+                            <li>Brand partnerships</li>
+                            <li>Creator fund</li>
+                            <li>Paid acquisition (Facebook, TikTok)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3>Phase 3: Scale (M18-36)</h3>
+                    <p>International expansion + partnerships (airlines, hotels, insurance) | Goal: $500M+ GMV</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Competitive Landscape -->
+        <div class="slide">
+            <h2 class="slide-title">Competitive Landscape</h2>
+            <div class="slide-content">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.3rem;">Direct Competitors (Women-Focused Travel)</h3>
+                <ul style="font-size: 1.1rem;">
+                    <li><strong>Wanderlusters:</strong> Slack group, not productized</li>
+                    <li><strong>Women Who Wander:</strong> Community, no booking platform</li>
+                    <li><strong>Divvy:</strong> Travel financing, not community</li>
+                </ul>
+                <p style="margin-top: 2rem; color: var(--accent); font-weight: 600; font-size: 1.2rem;">Status: None are venture-backed. No serious product competition.</p>
+
+                <h3 style="color: var(--primary); margin-top: 2rem; margin-bottom: 1.5rem; font-size: 1.3rem;">Indirect Competitors (Generic Platforms)</h3>
+                <p><strong>Airbnb, Booking.com, Intrepid, G Adventures:</strong> Scale but can't pivot to community without breaking their model.</p>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    Window of opportunity: 18-24 months before giants enter
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Team -->
+        <div class="slide">
+            <h2 class="slide-title">The Team</h2>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Shivani Dalakoti</h3>
+                        <p style="color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Founder & CEO</p>
+                        <p>Travel entrepreneur. Built Gone Girl MVP from concept. Passion for women empowerment.</p>
+                        <p style="margin-top: 1rem; font-weight: 600;">Proof of execution: Product built with zero funding</p>
+                    </div>
+                    <div class="card">
+                        <h3>Aanshi Chauhan</h3>
+                        <p style="color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Co-Founder</p>
+                        <p>Adventure enthusiast & community builder. Deep traveler network. Dedicated to sisterhood.</p>
+                        <p style="margin-top: 1rem; font-weight: 600;">Early adopter who tested the platform</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3>First Hires (to scale)</h3>
+                    <p>Full-stack engineer (M3) | Growth/Marketing (M3) | Community lead (M6) | Operations (M6)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Financial Projections -->
+        <div class="slide">
+            <h2 class="slide-title">Financial Projections (Conservative)</h2>
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Year 1</th>
+                            <th>Year 2</th>
+                            <th>Year 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bookings</strong></td>
+                            <td>500</td>
+                            <td>10K</td>
+                            <td>100K+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GMV</strong></td>
+                            <td>$1.5M</td>
+                            <td>$30M</td>
+                            <td>$300M+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Commission (18%)</strong></td>
+                            <td>$270K</td>
+                            <td>$5.4M</td>
+                            <td>$54M</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Operating Costs</strong></td>
+                            <td>($500K)</td>
+                            <td>($2M)</td>
+                            <td>($8M)</td>
+                        </tr>
+                        <tr style="background: #e8f3f1;">
+                            <td><strong>EBITDA</strong></td>
+                            <td style="color: var(--accent); font-weight: 600;">($230K)</td>
+                            <td style="color: var(--accent); font-weight: 600;">$3.4M</td>
+                            <td style="color: var(--accent); font-weight: 600;">$46M</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 1.5rem; text-align: center; font-weight: 600;">
+                    Break-even: Month 18 | EBITDA margin: Year 3 = 85%
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 16: Use of Funds -->
+        <div class="slide">
+            <h2 class="slide-title">Use of Funds: $2M Seed Round</h2>
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Timeline</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Engineering (2 FTE)</strong></td>
+                            <td>$600K</td>
+                            <td>M1-18</td>
+                            <td>Scale platform</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Growth/Marketing</strong></td>
+                            <td>$800K</td>
+                            <td>M1-18</td>
+                            <td>50K → 100K users</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Community/Ops (1 FTE)</strong></td>
+                            <td>$300K</td>
+                            <td>M6-18</td>
+                            <td>100+ trips</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Infrastructure/Payment</strong></td>
+                            <td>$150K</td>
+                            <td>M1-18</td>
+                            <td>Stripe, Vercel, AWS</td>
+                        </tr>
+                        <tr style="background: #e8f3f1;">
+                            <td><strong>Contingency</strong></td>
+                            <td>$150K</td>
+                            <td>As needed</td>
+                            <td>Buffer</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 2rem; text-align: center; font-weight: 600; color: var(--primary); font-size: 1.1rem;">
+                    18-month runway to prove PMF and raise Series A
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 17: Exit Strategy -->
+        <div class="slide">
+            <h2 class="slide-title">Exit Strategy & Upside</h2>
+            <div class="slide-content">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.3rem;">Acquisition Targets</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Why Interested</th>
+                            <th>Multiple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Airbnb</strong></td>
+                            <td>Expand to women travelers</td>
+                            <td>10-15x revenue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Booking.com</strong></td>
+                            <td>Add community layer</td>
+                            <td>8-12x revenue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marriott/Hilton</strong></td>
+                            <td>Distribute to women</td>
+                            <td>5-8x revenue</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <strong>Acquisition Scenario (Year 3-4):</strong><br>
+                    $300M GMV × 10% margin × 12x multiple = $3.6B valuation<br>
+                    Investor 20% = $720M return on $2M → <strong>360x</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: Why Now -->
+        <div class="slide">
+            <h2 class="slide-title">Why Now?</h2>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Market Timing</h3>
+                        <ul style="margin-left: 1.5rem; font-size: 1rem;">
+                            <li>Post-COVID: Women solo travel +60% YoY</li>
+                            <li>Gen-Z: Values community over price</li>
+                            <li>Creator economy: Influencers ready to promote</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Capital Opportunity</h3>
+                        <ul style="margin-left: 1.5rem; font-size: 1rem;">
+                            <li>$100B market, $0 in venture</li>
+                            <li>Female founders raising more than ever</li>
+                            <li>Window: 18-24 months before big players enter</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 1.5rem;">
+                    This is the perfect time to capture the women's travel market
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Why We'll Win -->
+        <div class="slide">
+            <h2 class="slide-title">Why We'll Win</h2>
+            <div class="slide-content">
+                <ol style="font-size: 1.2rem; line-height: 2; margin-left: 2rem;">
+                    <li><strong>Founders can ship</strong> — Built MVP from zero. Proof of execution.</li>
+                    <li><strong>Market is real</strong> — Women spend $100B+. Demand validated.</li>
+                    <li><strong>Wedge is defensible</strong> — Community + trust can't be copied by price-optimizers.</li>
+                    <li><strong>Timing is perfect</strong> — Post-COVID, Gen-Z values, giant gap in market.</li>
+                    <li><strong>Unit economics are stellar</strong> — 27:1 LTV:CAC, 85% margins by Year 3.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 20: The Ask -->
+        <div class="slide slide-dark">
+            <h2 class="slide-title">The Ask</h2>
+            <div class="slide-content" style="text-align: center;">
+                <div class="highlight-box" style="margin: 2rem 0;">
+                    <strong>$2M Seed Round</strong>
+                </div>
+                <p style="font-size: 1.3rem; margin: 2rem 0;">
+                    To reach <strong>100K users, 10K+ bookings, $10M+ GMV</strong> in 18 months
+                </p>
+                <p style="font-size: 1.2rem; margin: 2rem 0; color: var(--accent);">
+                    By then: Series A at $300M+ valuation
+                </p>
+                <div class="highlight-box" style="margin-top: 3rem; background: var(--accent);">
+                    <strong>Travel is one of the few spaces where women outnumber men as consumers.</strong><br><br>
+                    <strong>We're building the platform for them.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="nav-buttons">
+        <button onclick="previousSlide()">← Back</button>
+        <button onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+
+        // Show first slide
+        showSlide(0);
+    </script>
+</body>
+</html>

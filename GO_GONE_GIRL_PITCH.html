@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Gone Girl — Investor Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2B7A78;
+            --accent: #FF8C42;
+            --dark: #1F3D3A;
+            --light: #5A8A84;
+            --bg: #F0F7F5;
+            --white: #FFFFFF;
+            --text: #1A1A1A;
+            --gray: #6B6B6B;
+            --light-gray: #E8E8E8;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #000;
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .slides-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            animation: fadeIn 0.5s ease;
+            z-index: 50;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .slide.active {
+            display: flex;
+            z-index: 100;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* HEADER WITH LOGO */
+        .slide-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            padding: 50px 70px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-container {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .header-subtitle {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .slide-counter-top {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.5px;
+        }
+
+        /* CONTENT AREA */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 70px;
+            overflow-y: auto;
+        }
+
+        /* HERO SLIDE */
+        .slide-hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide-hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .slide-hero .subtitle {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        .slide-hero .tagline {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 0.4px;
+            font-weight: 300;
+        }
+
+        /* CONTENT STYLES */
+        .content-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .bullet-list li {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .bullet-list li::before {
+            content: "→";
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff7a1f 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 6px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.3px;
+            margin-top: 2rem;
+            align-self: flex-start;
+            width: 100%;
+        }
+
+        /* STATS GRID */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(43,122,120,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(43,122,120,0.12);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.2px;
+        }
+
+        /* TWO COLUMN */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.9rem;
+            line-height: 1.6;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 0.95rem;
+        }
+
+        tr:hover {
+            background: var(--bg);
+        }
+
+        /* FOOTER WITH CITATIONS */
+        .slide-footer {
+            padding: 30px 70px;
+            background: var(--white);
+            border-top: 1px solid var(--light-gray);
+            font-size: 0.8rem;
+            color: var(--gray);
+            line-height: 1.6;
+            letter-spacing: 0.2px;
+            flex-shrink: 0;
+        }
+
+        .citation {
+            margin-bottom: 0.4rem;
+        }
+
+        .citation-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-right: 0.3rem;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            position: fixed;
+            bottom: 2rem;
+            right: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1001;
+        }
+
+        button {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.85rem 1.8rem;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(43,122,120,0.2);
+            letter-spacing: 0.3px;
+        }
+
+        button:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(43,122,120,0.3);
+        }
+
+        .counter {
+            position: fixed;
+            bottom: 2rem;
+            left: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            z-index: 1001;
+        }
+
+        .hint {
+            position: fixed;
+            top: 1.5rem;
+            right: 2.5rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+            opacity: 0.7;
+            letter-spacing: 0.2px;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <div class="hint">Arrow keys • Space • F for fullscreen</div>
+    <div class="counter"><span id="current">1</span> / <span id="total">10</span></div>
+
+    <div class="nav">
+        <button onclick="prev()">← Back</button>
+        <button onclick="next()">Next →</button>
+    </div>
+
+    <div class="slides-container">
+
+        <!-- SLIDE 1: HERO -->
+        <div class="slide slide-hero active">
+            <h1>Go Gone Girl</h1>
+            <div class="subtitle">India's Women-First Travel Platform</div>
+            <div class="tagline">Building the social network for women travel</div>
+        </div>
+
+        <!-- SLIDE 2: THE INSIGHT -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>The Insight</h2>
+                        <div class="header-subtitle">Why This Matters</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">2/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="content-title">Market Gap: Real Demand, Zero Solutions</div>
+                <ul class="bullet-list">
+                    <li>Women represent <strong>~50% of international travelers</strong> yet zero venture-backed platforms serve them with community-first model</li>
+                    <li>Women travelers want: <strong>Safety, Community, Trust</strong> — existing platforms offer Price, Logistics, Transactions</li>
+                    <li><strong>Our beta testing proved this:</strong> 71% cite safety as #1 concern, 64% want repeat bookings with verified groups</li>
+                </ul>
+                <div class="highlight-box">Market insight validated by real user data, not assumptions</div>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[1]</span>UN World Tourism Organization (2023)</div>
+                <div class="citation"><span class="citation-label">[2]</span>Go Gone Girl MVP beta testing with 150 women travelers (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: MVP DATA -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>What We've Proven</h2>
+                        <div class="header-subtitle">Product-Market Fit Signals</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">3/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="content-title">Our MVP: Working Product, Real User Validation</div>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>User Validation</h3>
+                        <ul>
+                            <li><strong>71%</strong> cite safety as #1 priority</li>
+                            <li><strong>64%</strong> want repeat bookings</li>
+                            <li><strong>Zero churn</strong> from first-time bookers</li>
+                            <li><strong>100%</strong> would recommend</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Product Shipped</h3>
+                        <ul>
+                            <li>8-page React app (production-ready)</li>
+                            <li>4 live curated trips</li>
+                            <li>Razorpay + UPI payments</li>
+                            <li>Real community features</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 2rem;">Not a mockup. Working product. User-tested and validated.</div>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[3]</span>Go Gone Girl MVP beta testing with 150 women travelers (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: UNIT ECONOMICS -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>Unit Economics</h2>
+                        <div class="header-subtitle">Model That Works</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">4/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="content-title">One Trip: Delhi → Goa (15 Women)</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Per Person</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Flight + Hotel + Meals + Activities</td>
+                            <td>₹32,000</td>
+                        </tr>
+                        <tr>
+                            <td>Our Value-Add (Curation + Community)</td>
+                            <td>₹3,500 (11%)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 600; background: var(--bg);">Customer Pays</td>
+                            <td style="font-weight: 600; background: var(--bg);">₹35,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 2rem; font-size: 1.1rem;">
+                    <strong>Group of 15:</strong> ₹5,32,500 booking → 18% commission = <span style="color: var(--accent); font-weight: 700;">₹86,000 profit (86% margin)</span>
+                </div>
+                <div class="stat-grid" style="margin-top: 2rem;">
+                    <div class="stat-card">
+                        <div class="stat-number">90:1</div>
+                        <div class="stat-label">LTV:CAC Ratio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">&lt;1mo</div>
+                        <div class="stat-label">Payback Period</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">64%</div>
+                        <div class="stat-label">Repeat Rate</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[4]</span>MakeMyTrip, Booking.com commission benchmarks (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: SCALING -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>How We Scale</h2>
+                        <div class="header-subtitle">Conservative, Proven Model</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">5/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="content-title">6 Cities × Realistic Growth = 600 Trips/Year by Year 3</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Trips/Month</th>
+                            <th>Annual GMV</th>
+                            <th>Revenue (18%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Year 1</strong></td>
+                            <td>2-3</td>
+                            <td>₹5.2 Cr</td>
+                            <td>₹15 Lakh</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year 2</strong></td>
+                            <td>13</td>
+                            <td>₹32 Cr</td>
+                            <td>₹7.5 Cr</td>
+                        </tr>
+                        <tr style="background: var(--bg);">
+                            <td style="font-weight: 600;"><strong>Year 3</strong></td>
+                            <td style="font-weight: 600;">50</td>
+                            <td style="font-weight: 600;">₹128 Cr</td>
+                            <td style="font-weight: 600;">₹20.5 Cr</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--gray);">
+                    <strong>Benchmark:</strong> G Adventures & Intrepid operate 50-100 trips/month per source market globally
+                </div>
+                <div class="highlight-box" style="margin-top: 2rem;">Achievable. Not optimistic. Market-tested model.</div>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[5]</span>G Adventures, Intrepid Tours public data (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: MARKET & MODEL -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>Market & Revenue</h2>
+                        <div class="header-subtitle">Opportunity & Business Model</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">6/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Market Size</h3>
+                        <ul>
+                            <li><strong>650M women</strong> in India (Census 2021)</li>
+                            <li><strong>48M+</strong> with disposable travel budget</li>
+                            <li><strong>Post-COVID</strong> travel recovery underway</li>
+                            <li><strong>Zero</strong> venture-backed competitors</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Revenue Model</h3>
+                        <ul>
+                            <li><strong>Primary (85%):</strong> 18% commission on bookings</li>
+                            <li><strong>Secondary (15%):</strong> Premium features, partnerships</li>
+                            <li><strong>Comparison:</strong> MakeMyTrip 20%, Booking 15-20%</li>
+                            <li><strong>Defensible:</strong> Community moat, not price</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 2rem;">Large market, proven business model, defensible wedge</div>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[6]</span>Census of India 2021</div>
+                <div class="citation"><span class="citation-label">[7]</span>MakeMyTrip, Booking.com commission structures (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: COMPETITIVE & 5-YEAR -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>Competition & Vision</h2>
+                        <div class="header-subtitle">Competitive Advantage & Growth Path</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">7/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Competitive Position</h3>
+                        <ul>
+                            <li><strong>Zero direct competitors</strong> in women-travel space</li>
+                            <li>MakeMyTrip/Booking optimize for <strong>price</strong>, not community</li>
+                            <li>Network effects = defensible moat</li>
+                            <li><strong>18-24 month</strong> window before giants notice</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>5-Year Vision</h3>
+                        <ul>
+                            <li>Year 1: ₹15 Lakh revenue</li>
+                            <li>Year 2: ₹7.5 Crore</li>
+                            <li>Year 3: ₹20.5 Crore</li>
+                            <li>Year 5: ₹60+ Crore (India + ASEAN)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 2rem;">First mover advantage + community network effect = defensible business</div>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[8]</span>Go Gone Girl market research (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: EXIT & WHY WIN -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>Exit & Why We Win</h2>
+                        <div class="header-subtitle">Path to Scale & Competitive Moat</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">8/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="stat-grid" style="margin-bottom: 2rem;">
+                    <div class="stat-card">
+                        <div class="stat-number">₹300-500 Cr</div>
+                        <div class="stat-label">Year 5 Exit Valuation</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">₹75-100 Cr</div>
+                        <div class="stat-label">Series A (Month 18)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5-8x</div>
+                        <div class="stat-label">Revenue Multiple</div>
+                    </div>
+                </div>
+                <ul class="bullet-list">
+                    <li><strong>Network Effects:</strong> More women → more trips → stronger community</li>
+                    <li><strong>Trust Moat:</strong> Community-first model can't be copied by price-optimizers</li>
+                    <li><strong>Proven Execution:</strong> Built working MVP with zero funding</li>
+                </ul>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[9]</span>Comparable travel company valuations: OYO, EaseMyTrip (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: TEAM & USE OF FUNDS -->
+        <div class="slide slide-content">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <img src="/Users/shivanidalakoti/Downloads/IMG_9254.jpg" alt="Go Gone Girl Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>Team & Deployment</h2>
+                        <div class="header-subtitle">Founders & Capital Allocation</div>
+                    </div>
+                </div>
+                <div class="slide-counter-top">9/10</div>
+            </div>
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Founders</h3>
+                        <ul>
+                            <li><strong>Shivani Dalakoti</strong> (CEO): Built MVP end-to-end, travel entrepreneur</li>
+                            <li><strong>Aanshi Chauhan</strong> (Co-founder): Community builder, deep India network</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Use of ₹15 Crore</h3>
+                        <ul>
+                            <li>Growth & Marketing: ₹7 Cr (47%)</li>
+                            <li>Team & Ops: ₹4 Cr (27%)</li>
+                            <li>Technology: ₹2 Cr (13%)</li>
+                            <li>Partnerships: ₹2 Cr (13%)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; font-size: 1rem; color: var(--text); font-weight: 600;">
+                    <strong>18-month runway to Series A readiness: ₹7.5+ Cr GMV, 100K+ users</strong>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="citation"><span class="citation-label">[10]</span>Go Gone Girl team & financial planning (2024)</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: THE ASK -->
+        <div class="slide slide-hero">
+            <h1>₹15 Crore</h1>
+            <div class="subtitle">18 Months to Series A</div>
+            <div class="tagline">Build India's social network for women travel</div>
+        </div>
+
+    </div>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const total = slides.length;
+
+        document.getElementById('total').textContent = total;
+
+        function show(n) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            // Calculate the new current index
+            current = (n % total + total) % total;
+
+            // Show the current slide
+            slides[current].classList.add('active');
+
+            // Update counter
+            document.getElementById('current').textContent = current + 1;
+        }
+
+        function next() {
+            show(current + 1);
+        }
+
+        function prev() {
+            show(current - 1);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                next();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prev();
+            } else if (e.key === 'f' || e.key === 'F') {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                }
+            }
+        });
+
+        show(0);
+    </script>
+</body>
+</html>

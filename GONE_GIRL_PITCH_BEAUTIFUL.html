@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gone Girl - Investor Pitch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2B7A78;
+            --accent: #FF8C42;
+            --dark: #1F3D3A;
+            --light: #5A8A84;
+            --bg: #F0F7F5;
+            --white: #FFFFFF;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Hero Slide */
+        .slide-hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .slide-hero h1 {
+            font-size: 5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .slide-hero .subtitle {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .slide-hero .desc {
+            font-size: 1.3rem;
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        /* Content Slide */
+        .slide-content {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--white) 100%);
+            padding: 0;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            padding: 30px 50px;
+            color: var(--white);
+        }
+
+        .slide-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .slide-body {
+            padding: 50px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bullet-list {
+            list-style: none;
+        }
+
+        .bullet-list li {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            padding-left: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff7a1f 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Stat Slide */
+        .slide-stats {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--white) 100%);
+            padding: 0;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 50px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 3px solid var(--primary);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Grid Layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .card li {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        button {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(43, 122, 120, 0.3);
+        }
+
+        button:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(43, 122, 120, 0.4);
+        }
+
+        .counter {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .hint {
+            position: fixed;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+            opacity: 0.6;
+        }
+
+        @media print {
+            body { background: white; }
+            .slide {
+                page-break-after: always;
+                display: flex !important;
+                position: relative;
+                height: auto;
+                min-height: 100vh;
+            }
+            .nav, .counter, .hint { display: none; }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        th {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background: var(--bg);
+        }
+    </style>
+</head>
+<body>
+    <div class="hint">← → or Space to navigate | F for fullscreen</div>
+    <div class="counter"><span id="current">1</span> / <span id="total">25</span></div>
+
+    <div class="nav">
+        <button onclick="prev()">← Back</button>
+        <button onclick="next()">Next →</button>
+    </div>
+
+    <!-- SLIDE 1: HERO -->
+    <div class="slide slide-hero active">
+        <h1>Gone Girl</h1>
+        <div class="subtitle">India's Women-First Travel Platform</div>
+        <div class="desc">₹15 Crore Seed Round</div>
+    </div>
+
+    <!-- SLIDE 2: PROBLEM -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>The Problem</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>🚀 Women spend <strong>₹8,500 Cr</strong> annually on travel in India</li>
+                <li>📱 <strong>52%+</strong> of travelers have ZERO platforms built for them</li>
+                <li>💭 They want: <strong>Safety, Community, Trust</strong></li>
+                <li>🎯 Platforms offer: <strong>Price, Logistics, Transactions</strong></li>
+                <li>⚠️ <strong>76%</strong> of solo women cite safety as #1 priority</li>
+            </ul>
+            <div class="highlight-box">Market gap: Real demand, zero solutions</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: MARKET VALIDATION -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Why This Matters</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>📈 <strong>67% YoY growth</strong> in women solo travelers (2022-2023)</li>
+                <li>💰 <strong>68%</strong> would pay premium for women-verified communities</li>
+                <li>👥 <strong>2M+ members</strong> in India women's travel Facebook groups</li>
+                <li>💵 <strong>₹0</strong> venture funding in women-focused travel startups</li>
+                <li>⏰ Perfect timing: Post-COVID + Digital-ready + No competition</li>
+            </ul>
+            <div class="highlight-box">Massive demand. Zero competition. NOW.</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: CONCRETE EXAMPLE -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>One Trip Economics</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>📍 <strong>Delhi → Goa | 15 Women | 3 Days / 4 Nights</strong></li>
+                <li></li>
+                <li><strong>Per Person Breakdown:</strong></li>
+                <li>   Flight: ₹4,000 | Hotel: ₹20,000 | Meals: ₹3,000</li>
+                <li>   Activities: ₹4,000 | Misc: ₹1,000</li>
+                <li></li>
+                <li>💰 <strong>TOTAL: ₹32,000 per person</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: WHAT WE CHARGE -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>What Gone Girl Charges</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>📋 Customer Cost: <strong>₹32,000</strong></li>
+                <li>✨ Our Markup: <strong>₹3,500 (11%)</strong> for curation + community + safety</li>
+                <li>💳 Customer Pays: <strong>₹35,500</strong> per person</li>
+                <li></li>
+                <li><strong>✅ We Provide:</strong></li>
+                <li>   • Verified group safety | Trip curation</li>
+                <li>   • Community experience | 24/7 support</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: PLATFORM REVENUE -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Platform Revenue Per Trip</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>👥 Group of 15 Women: <strong>₹5,32,500</strong> total booking</li>
+                <li></li>
+                <li>💰 Platform Commission: <strong>18% = ₹95,850</strong></li>
+                <li>   Less: Payment fees (2%): -₹1,929</li>
+                <li>   Less: Customer support (5%): -₹2,664</li>
+                <li>   Less: Trip ops (8%): -₹4,268</li>
+                <li></li>
+                <li>📊 <strong>NET PROFIT: ₹86,000 per trip (86% margin)</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: SCALING -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>How We Scale</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>🌍 <strong>6 Major Cities × Realistic Growth = 600 trips/year by Year 3</strong></li>
+                <li></li>
+                <li>Year 1: 30 trips (~2-3/month)</li>
+                <li>Year 2: 150 trips (~12-13/month)</li>
+                <li>Year 3: 600 trips (~50/month = 8-10/week per city)</li>
+                <li></li>
+                <li>✓ G Adventures & Intrepid already operate at this scale</li>
+            </ul>
+            <div class="highlight-box">Achievable. Proven. Realistic.</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: UNIT ECONOMICS -->
+    <div class="slide slide-stats">
+        <div class="slide-header"><h2>Unit Economics (Realistic)</h2></div>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">90:1</div>
+                <div class="stat-label">LTV:CAC Ratio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">₹1,000</div>
+                <div class="stat-label">Customer Acquisition Cost</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">₹90K</div>
+                <div class="stat-label">Lifetime Value (3-year)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: REPEAT RATE -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Why 90:1 LTV:CAC Works</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>📊 <strong>Repeat Rate (Realistic):</strong></li>
+                <li>   Year 1: 100% (customer's first trip)</li>
+                <li>   Year 2: 20% repeat rate (trying us)</li>
+                <li>   Year 3: 30% repeat rate (community lock-in)</li>
+                <li></li>
+                <li>💡 Blended Repeat: 3 years × 1-1.3 trips average</li>
+                <li>   <strong>3-Year LTV = ₹90,000</strong></li>
+                <li>   <strong>LTV:CAC = 90:1 ✅ (Still world-class)</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: TARGET AUDIENCE -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Target Audience - India</h2></div>
+        <div class="slide-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Size</th>
+                        <th>Income</th>
+                        <th>Trip Budget</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Metro Professionals</strong></td>
+                        <td>8M women</td>
+                        <td>₹8-15L</td>
+                        <td>₹50-100K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tier 1 Working Women</strong></td>
+                        <td>15M women</td>
+                        <td>₹5-10L</td>
+                        <td>₹30-60K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tier 2 Aspirational</strong></td>
+                        <td>25M women</td>
+                        <td>₹3-7L</td>
+                        <td>₹15-35K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="highlight-box">Primary TAM: 48M+ women in India | Average trip budget: ₹35K</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: MARKET SIZE -->
+    <div class="slide slide-stats">
+        <div class="slide-header"><h2>Market Opportunity</h2></div>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">₹27,300 Cr</div>
+                <div class="stat-label">Total Women's Travel Market</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">₹8,500 Cr</div>
+                <div class="stat-label">Premium Segment (31%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">₹1,530 Cr</div>
+                <div class="stat-label">Platform TAM (18%)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: BUSINESS MODEL -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Revenue Streams</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>💰 <strong>PRIMARY (85-90% of revenue):</strong></li>
+                <li>   • 18% commission on trip bookings</li>
+                <li>   • Domestic India trips: ₹32-40K per person</li>
+                <li></li>
+                <li>✨ <strong>SECONDARY (10-15% of revenue):</strong></li>
+                <li>   • Premium features | Brand partnerships</li>
+                <li>   • Travel insurance co-marketing</li>
+                <li>   • Corporate team-building packages</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: FINANCIALS -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Financial Projections (Realistic)</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>📈 <strong>YEAR 1:</strong> 30 trips | ₹5.2 Cr GMV | ₹15 Lakh revenue</li>
+                <li></li>
+                <li>📈 <strong>YEAR 2:</strong> 150 trips | ₹32 Cr GMV | ₹7.5 Cr revenue</li>
+                <li></li>
+                <li>📈 <strong>YEAR 3:</strong> 600 trips | ₹128 Cr GMV | ₹20.5 Cr revenue</li>
+                <li></li>
+                <li>📊 <strong>Growth Rate: 6.5x by Year 3 (Still excellent)</strong></li>
+            </ul>
+            <div class="highlight-box">Conservative. Achievable. Honest.</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: PROFITABILITY -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Path to Profitability</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>Year 1: Burn <strong>₹2.5 Cr</strong> (founding & setup)</li>
+                <li></li>
+                <li>Year 2: 🎯 <strong>BREAKEVEN to ₹2 Cr+ EBITDA</strong></li>
+                <li></li>
+                <li>Year 3: <strong>₹12+ Cr EBITDA (50%+ margin)</strong></li>
+                <li></li>
+                <li>🔑 <strong>Total burn through profitability: ₹2.5 Cr</strong></li>
+                <li>✓ <strong>Well within ₹15 Cr seed budget</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 15: GO-TO-MARKET -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Go-to-Market Strategy</h2></div>
+        <div class="slide-body">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎬 PHASE 1 (Months 1-6): Founder-Led</h3>
+                    <ul>
+                        <li>Content (Substack, Instagram, YouTube)</li>
+                        <li>Community partnerships</li>
+                        <li>Lean In India, Women in Tech</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🚀 PHASE 2 (Months 6-12): Product-Led</h3>
+                    <ul>
+                        <li>Paid social (Facebook/Instagram)</li>
+                        <li>Influencer seeding</li>
+                        <li>Referral program</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: COMPETITION -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Competitive Landscape</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>🔍 <strong>Direct Competitors (Women-Focused Travel):</strong></li>
+                <li>   • Wanderlusters: Slack group, not productized</li>
+                <li>   • Women Who Wander: Community only</li>
+                <li>   • She Treks: Limited tours, offline-first</li>
+                <li></li>
+                <li>✅ <strong>Status: No venture-backed competitors exist</strong></li>
+                <li>⏱️ <strong>18-24 month competitive window to build moat</strong></li>
+            </ul>
+            <div class="highlight-box">ZERO competition. We're first mover.</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 17: TEAM -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>The Founding Team</h2></div>
+        <div class="slide-body">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>👩‍💼 Shivani Dalakoti</h3>
+                    <p style="margin-bottom: 0.5rem; color: var(--accent); font-weight: 600;">Founder & CEO</p>
+                    <ul>
+                        <li>Travel entrepreneur</li>
+                        <li>Built MVP end-to-end</li>
+                        <li>Proven India market execution</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>👩‍💼 Aanshi Chauhan</h3>
+                    <p style="margin-bottom: 0.5rem; color: var(--accent); font-weight: 600;">Co-Founder</p>
+                    <ul>
+                        <li>Adventure enthusiast</li>
+                        <li>Deep India traveler network</li>
+                        <li>Tested platform herself</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 18: WHY NOW -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Why Now? Market Timing</h2></div>
+        <div class="slide-body">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>📈 Post-COVID Boom</h3>
+                    <ul>
+                        <li>Women solo travel +67% YoY</li>
+                        <li>Domestic travel +20% CAGR</li>
+                        <li>Strong recovery momentum</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📱 Digital Ready</h3>
+                    <ul>
+                        <li>Mobile payments 85%+ adoption</li>
+                        <li>UPI: ₹550+ Cr daily</li>
+                        <li>68% book travel online</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box" style="margin-top: 2rem;">Perfect convergence of trends.</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 19: USE OF FUNDS -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Use of Funds: ₹15 Crore</h2></div>
+        <div class="slide-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>%</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🎯 Growth & Marketing</td>
+                        <td>₹7 Cr</td>
+                        <td>47%</td>
+                        <td>User acquisition</td>
+                    </tr>
+                    <tr>
+                        <td>👥 Team & Ops</td>
+                        <td>₹4 Cr</td>
+                        <td>27%</td>
+                        <td>Salaries, operations</td>
+                    </tr>
+                    <tr>
+                        <td>⚙️ Technology</td>
+                        <td>₹2 Cr</td>
+                        <td>13%</td>
+                        <td>Scale platform, payments</td>
+                    </tr>
+                    <tr>
+                        <td>🏨 Trip Curation</td>
+                        <td>₹1 Cr</td>
+                        <td>7%</td>
+                        <td>Hotel partnerships</td>
+                    </tr>
+                    <tr>
+                        <td>🛡️ Contingency</td>
+                        <td>₹1 Cr</td>
+                        <td>7%</td>
+                        <td>Buffer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SLIDE 20: SERIES A -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Series A (Month 18)</h2></div>
+        <div class="slide-body">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>📊 Metrics We'll Have</h3>
+                    <ul>
+                        <li>75K-100K active users</li>
+                        <li>₹7.5+ Cr annual GMV</li>
+                        <li>₹1.3 Cr/month revenue</li>
+                        <li>40% repeat booking rate</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>💰 Series A Details</h3>
+                    <ul>
+                        <li><strong>Valuation:</strong> ₹75-100 Cr</li>
+                        <li><strong>Raise:</strong> ₹30-40 Cr</li>
+                        <li><strong>Dilution:</strong> 30%</li>
+                        <li><strong>Seed return:</strong> 1.9x</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 21: 5-YEAR VISION -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>5-Year Vision</h2></div>
+        <div class="slide-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Trips</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Year 1</strong></td>
+                        <td>30</td>
+                        <td>₹0.15 Cr</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 2</strong></td>
+                        <td>150</td>
+                        <td>₹7.5 Cr</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 3</strong></td>
+                        <td>600</td>
+                        <td>₹20.5 Cr</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 4</strong></td>
+                        <td>1,200</td>
+                        <td>₹41 Cr</td>
+                    </tr>
+                    <tr style="background: var(--bg); font-weight: 700;">
+                        <td><strong>Year 5</strong></td>
+                        <td>2,000+</td>
+                        <td>₹60+ Cr</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="highlight-box" style="margin-top: 1rem;">ASEAN expansion starting Year 3</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 22: EXIT SCENARIOS -->
+    <div class="slide slide-stats">
+        <div class="slide-header"><h2>Exit Scenarios (Year 5)</h2></div>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">₹300 Cr</div>
+                <div class="stat-label">Conservative</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">₹400 Cr</div>
+                <div class="stat-label">Moderate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">₹500 Cr</div>
+                <div class="stat-label">Aggressive</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 23: WHY WE WIN -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>Why We'll Win</h2></div>
+        <div class="slide-body">
+            <ul class="bullet-list">
+                <li>🌐 <strong>Network Effects:</strong> More women → more trips → community</li>
+                <li>🔒 <strong>Trust Moat:</strong> Can't be copied by price-optimizers</li>
+                <li>💎 <strong>Unit Economics:</strong> 90:1 LTV:CAC (world-class)</li>
+                <li>🚀 <strong>Founder Execution:</strong> Built MVP from zero</li>
+                <li>⏰ <strong>Market Timing:</strong> Perfect convergence of trends</li>
+            </ul>
+            <div class="highlight-box" style="margin-top: 2rem;">All five working together = Defensible business</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 24: MVP -->
+    <div class="slide slide-content">
+        <div class="slide-header"><h2>MVP: What We Built</h2></div>
+        <div class="slide-body">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>✅ Core Product (Production-Ready)</h3>
+                    <ul>
+                        <li>8-page React app</li>
+                        <li>4 curated trips live</li>
+                        <li>Multi-step booking flow</li>
+                        <li>Admin dashboard</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>✅ India-Optimized</h3>
+                    <ul>
+                        <li>Razorpay + UPI payments</li>
+                        <li>Real testimonials (video)</li>
+                        <li>Safety-first design</li>
+                        <li>16 real community photos</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box" style="margin-top: 2rem;">🎯 NOT A MOCKUP. LIVE AND WORKING.</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 25: THE ASK -->
+    <div class="slide slide-hero">
+        <h1>The Investment</h1>
+        <div class="subtitle">₹15 Crore Seed Round</div>
+        <div class="desc">Build India's social network for women travel<br>Expand to ASEAN in Year 3<br>Exit at ₹300-500 Cr</div>
+    </div>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const total = slides.length;
+
+        document.getElementById('total').textContent = total;
+
+        function show(n) {
+            slides[current].classList.remove('active');
+            current = (n + total) % total;
+            slides[current].classList.add('active');
+            document.getElementById('current').textContent = current + 1;
+        }
+
+        function next() { show(current + 1); }
+        function prev() { show(current - 1); }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') next();
+            else if (e.key === 'ArrowLeft') prev();
+            else if (e.key === 'f' || e.key === 'F') document.documentElement.requestFullscreen?.();
+        });
+
+        show(0);
+    </script>
+</body>
+</html>
